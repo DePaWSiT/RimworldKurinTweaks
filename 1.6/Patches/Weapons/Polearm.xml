@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Set crafting requirement -->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinPolearmCraftingRequirement</key>
+    <defaultValue>14</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]/recipeMaker/skillRequirements/Crafting</xpath>
+        <value>
+          <Crafting>{DePaWSiTKurinPolearmCraftingRequirement}</Crafting>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- More appropriate research for a non-energy weapon -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinPolearmResearchRequirementsToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]/recipeMaker/researchPrerequisite</xpath>
+        <value>
+          <researchPrerequisite>Kurin_CombatT3</researchPrerequisite>
+        </value>
+      </Operation>
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]/recipeMaker/researchPrerequisites/li[text()="Kurin_CombatT3"]</xpath>
+      </Operation>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]/recipeMaker/researchPrerequisites</xpath>
+        <value>
+          <li>LongBlades</li>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- side effect of removing smithing from CombatT2 so will add flak as requirement for the body armor -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Middle_Body_Armor"]</xpath>
+        <value>
+          <recipeMaker>
+            <researchPrerequisites>
+              <li>FlakArmor</li>
+            </researchPrerequisites>
+          </recipeMaker>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinWeaponConfigToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationSequence">
+        <success>Normal</success>
+        <operations>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/statBases/WorkToMake</xpath>
+            <value>
+              <WorkToMake>42000</WorkToMake>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/statBases/AccuracyTouch</xpath>
+            <value>
+              <AccuracyTouch>0.77</AccuracyTouch>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/statBases/AccuracyShort</xpath>
+            <value>
+              <AccuracyShort>0.84</AccuracyShort>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/statBases/AccuracyMedium</xpath>
+            <value>
+              <AccuracyMedium>0.62</AccuracyMedium>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/statBases/AccuracyLong</xpath>
+            <value>
+              <AccuracyLong>0.42</AccuracyLong>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/statBases/RangedWeapon_Cooldown</xpath>
+            <value>
+              <RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/verbs/li/warmupTime</xpath>
+            <value>
+              <warmupTime>0.9</warmupTime>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/verbs/li/ticksBetweenBurstShots</xpath>
+            <value>
+              <ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/verbs/li/burstShotCount</xpath>
+            <value>
+              <burstShotCount>4</burstShotCount>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/verbs/li/pelletCount</xpath>
+            <value>
+              <pelletCount>3</pelletCount>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Charge_Shotgun"]/projectile/armorPenetrationBase</xpath>
+            <value>
+              <armorPenetrationBase>0.22</armorPenetrationBase>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Charge_Shotgun"]/projectile/speed</xpath>
+            <value>
+              <speed>170</speed>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/costList</xpath>
+            <value>
+              <costList>
+                <Plasteel>45</Plasteel>
+                <ComponentSpacer>2</ComponentSpacer>
+              </costList>
+            </value>
+          </li>
+        </operations>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <!-- Fix gunsmithing requirement on weapons -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinFixGunsmithingRequirementToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/recipeMaker/researchPrerequisites</xpath>
+      </Operation>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Charge_Shotgun"]/recipeMaker</xpath>
+        <value>
+          <researchPrerequisite>Kurin_CombatT4</researchPrerequisite>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

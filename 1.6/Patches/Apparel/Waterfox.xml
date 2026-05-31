@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Create at FabricationBench -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinApparelConfigToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]</xpath>
+        <value>
+          <recipeMaker>
+            <recipeUsers Inherit="False">
+              <li>FabricationBench</li>
+            </recipeUsers>
+          </recipeMaker>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <!-- correctly set research requirement -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinRemoveT0RequirementFromWaterfoxToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/recipeMaker</xpath>
+        <value>
+          <researchPrerequisite>Kurin_ApparelT4</researchPrerequisite>
+        </value>
+      </Operation>
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/recipeMaker/researchPrerequisites/li[text()="Kurin_ApparelT4"]</xpath>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

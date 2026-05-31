@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinWeaponConfigToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationSequence">
+        <success>Normal</success>
+        <operations>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/WorkToMake</xpath>
+            <value>
+              <WorkToMake>2400</WorkToMake>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/AccuracyTouch</xpath>
+            <value>
+              <AccuracyTouch>0.88</AccuracyTouch>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/AccuracyShort</xpath>
+            <value>
+              <AccuracyShort>0.92</AccuracyShort>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/AccuracyMedium</xpath>
+            <value>
+              <AccuracyMedium>0.34</AccuracyMedium>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/AccuracyLong</xpath>
+            <value>
+              <AccuracyLong>0.2</AccuracyLong>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/RangedWeapon_Cooldown</xpath>
+            <value>
+              <RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker/skillRequirements/Crafting</xpath>
+            <value>
+              <Crafting>3</Crafting>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/verbs/li/warmupTime</xpath>
+            <value>
+              <warmupTime>0.7</warmupTime>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/verbs/li/range</xpath>
+            <value>
+              <range>16</range>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/tools/li[label = "blade"]/power</xpath>
+            <value>
+              <power>11</power>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/tools/li[label = "blade"]/cooldownTime</xpath>
+            <value>
+              <cooldownTime>0.6</cooldownTime>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Surigum"]/projectile/speed</xpath>
+            <value>
+              <speed>80</speed>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/costList/Steel</xpath>
+            <value>
+              <Steel>35</Steel>
+            </value>
+          </li>
+        </operations>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <!-- Remove smithing from combat T2 and set requirements on items instead -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <!-- Add combatT2 as base requirement -->
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker</xpath>
+        <value>
+          <researchPrerequisite>Kurin_CombatT2</researchPrerequisite>
+        </value>
+      </Operation>
+      <!-- Remove combatT2 from additional requirements -->
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker/researchPrerequisites/li[text()="Kurin_CombatT2"]</xpath>
+      </Operation>
+      <!-- Add smithing as additional requirement -->
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker/researchPrerequisites</xpath>
+        <value>
+          <li>Smithing</li>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinMakeSurigumAtSmithingTableToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <!-- Add the smithy tables as recipe users -->
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker</xpath>
+        <value>
+          <recipeUsers Inherit="False">
+            <li>FueledSmithy</li>
+            <li>ElectricSmithy</li>
+          </recipeUsers>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

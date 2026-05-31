@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Remove flower requirement on T3-->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinRemoveConvolleraRequirementToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ResearchProjectDef[defName= "Kurin_CombatT3"]/prerequisites/li[text()="Kurin_Flower"]</xpath>
+      </Operation>
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ResearchProjectDef[defName= "Kurin_ApparelT3"]/prerequisites/li[text()="Kurin_Flower"]</xpath>
+      </Operation>
+      <Operation Class="PatchOperationRemove" MayRequire="Ludeon.Rimworld.Biotech">
+        <xpath>Defs/ResearchProjectDef[defName= "Kurin_Mechtech"]/prerequisites/li[text()="Kurin_Flower"]</xpath>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <!-- Set tech level correctly -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinSetAppropriateTechLevelToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT1"]/techLevel</xpath>
+        <value>
+          <techLevel>Medieval</techLevel>
+        </value>
+      </Operation>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT2"]/techLevel</xpath>
+        <value>
+          <techLevel>Medieval</techLevel>
+        </value>
+      </Operation>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT3"]/techLevel</xpath>
+        <value>
+          <techLevel>Medieval</techLevel>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <!-- Remove smithing from the research requirements -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_CombatT2"]/prerequisites/li[text()="Smithing"]</xpath>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <!-- Set republic armor to require the Marine armor research  instead of fabrication -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchMarineArmorForApparelT4</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT4"]/prerequisites/li[text()="Fabrication"]</xpath>
+      </Operation>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT4"]/prerequisites</xpath>
+        <value>
+          <li>PoweredArmor</li>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <!-- Flower research cost-->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostFlower</key>
+    <defaultValue>1200</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_Flower"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostFlower}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Basic clothing research cost -->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostApparelT1</key>
+    <defaultValue>400</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT1"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostApparelT1}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Advanced clothing research cost -->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostApparelT2</key>
+    <defaultValue>800</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT2"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostApparelT2}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Fine clothing research cost -->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostApparelT3</key>
+    <defaultValue>1200</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT3"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostApparelT3}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Republic armor research cost -->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostApparelT4</key>
+    <defaultValue>1600</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_ApparelT4"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostApparelT4}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Basic combat research cost-->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostCombatT2</key>
+    <defaultValue>800</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_CombatT2"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostCombatT2}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Advanced combat research cost -->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostCombatT3</key>
+    <defaultValue>1200</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_CombatT3"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostCombatT3}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Spacer combat research cost -->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostCombatT4</key>
+    <defaultValue>1600</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_CombatT4"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostCombatT4}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Mechtech research cost -->
+  <Operation Class="XmlExtensions.UseSetting" MayRequire="Ludeon.Rimworld.Biotech">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostMechtech</key>
+    <defaultValue>400</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_Mechtech"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostMechtech}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- Turret research cost-->
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinResearchCostTurret</key>
+    <defaultValue>400</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ResearchProjectDef[defName = "Kurin_Turret"]/baseCost</xpath>
+        <value>
+          <baseCost>{DePaWSiTKurinResearchCostTurret}</baseCost>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+</Patch>

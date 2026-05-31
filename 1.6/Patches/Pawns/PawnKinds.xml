@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinWeaponConfigToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationSequence">
+        <success>Normal</success>
+        <operations>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/PawnKindDef[defName = "Kurin_ELite_Scout"]/weaponMoney/min</xpath>
+            <value>
+              <min>550</min>
+            </value>
+          </li>
+        </operations>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

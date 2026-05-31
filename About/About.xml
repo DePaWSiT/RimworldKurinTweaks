@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>DePaWSiT.KurinConfigTweaks</packageId>
+  <name>Kurin HAR Tweaks</name>
+  <author>DePaWSiT</author>
+  <description>Contains (personal) tweaks for Kurin HAR</description>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>Seioch.Kurin.HAR</packageId>
+      <displayName>Kurin HAR Edition</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2326430787</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>imranfish.xmlextensions</packageId>
+      <displayName>XML Extensions</displayName>
+      <downloadUrl>https://github.com/15adhami/XmlExtensions/releases</downloadUrl>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Seioch.Kurin.HAR</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>DePaWSiT.KurinWeaponTweaks</li>
+  </incompatibleWith>
+</ModMetaData>

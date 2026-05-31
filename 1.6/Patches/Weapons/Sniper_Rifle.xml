@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Fix additional gunsmithing requirement for kurin weapons -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinFixGunsmithingRequirementToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationRemove">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/recipeMaker/researchPrerequisites/li[text()="Kurin_CombatT3"]</xpath>
+      </Operation>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/recipeMaker</xpath>
+        <value>
+          <researchPrerequisite>Kurin_CombatT3</researchPrerequisite>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinWeaponConfigToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationSequence">
+        <success>Normal</success>
+        <operations>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/statBases/WorkToMake</xpath>
+            <value>
+              <WorkToMake>43200</WorkToMake>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/statBases/Mass</xpath>
+            <value>
+              <Mass>3.8</Mass>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/statBases/AccuracyTouch</xpath>
+            <value>
+              <AccuracyTouch>0.60</AccuracyTouch>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/statBases/AccuracyShort</xpath>
+            <value>
+              <AccuracyShort>0.70</AccuracyShort>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/statBases/AccuracyMedium</xpath>
+            <value>
+              <AccuracyMedium>0.90</AccuracyMedium>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/statBases/AccuracyLong</xpath>
+            <value>
+              <AccuracyLong>0.93</AccuracyLong>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/statBases/RangedWeapon_Cooldown</xpath>
+            <value>
+              <RangedWeapon_Cooldown>1.85</RangedWeapon_Cooldown>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/verbs/li/warmupTime</xpath>
+            <value>
+              <warmupTime>2.60</warmupTime>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/costList</xpath>
+            <value>
+              <costList>
+                <Steel>60</Steel>
+                <ComponentIndustrial>8</ComponentIndustrial>
+              </costList>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Sniper_Rifle"]/verbs/li/range</xpath>
+            <value>
+              <range>41.9</range>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Sniper_Rifle"]/projectile/damageAmountBase</xpath>
+            <value>
+              <damageAmountBase>26</damageAmountBase>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Sniper_Rifle"]/projectile/stoppingPower</xpath>
+            <value>
+              <stoppingPower>2.2</stoppingPower>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Sniper_Rifle"]/projectile/armorPenetrationBase</xpath>
+            <value>
+              <armorPenetrationBase>0.32</armorPenetrationBase>
+            </value>
+          </li>
+          <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Sniper_Rifle"]/projectile/speed</xpath>
+            <value>
+              <speed>320</speed>
+            </value>
+          </li>
+        </operations>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

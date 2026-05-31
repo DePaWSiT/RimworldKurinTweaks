@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <XmlExtensions.SettingsMenuDef>
+    <defName>DePaWSiTKurinConfigSettingsMenu</defName>
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <label>Kurin Config Tweaks</label>
+    <defaultSpacing>2</defaultSpacing>
+    <settings>
+      <li Class="XmlExtensions.Setting.Text">
+        <text>Kurin HAR config tweaks</text>
+        <font>Medium</font>
+        <anchor>Middle</anchor>
+      </li>
+      <li Class="XmlExtensions.Setting.Text">
+        <text>(restart required for the settings to take effect)</text>
+        <font>Small</font>
+        <anchor>Middle</anchor>
+        <color>(187,0,0)</color>
+      </li>
+      <li Class="XmlExtensions.Setting.CollapsibleSettings">
+        <label>Weapon Tweaks</label>
+        <headerFont>Medium</headerFont>
+        <tooltip>Changes for Kurin weapons</tooltip>
+        <settings>
+          <li Class="XmlExtensions.Setting.Group">
+            <padAbove>2</padAbove>
+            <padLeft>24</padLeft>
+            <settings>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinWeaponConfigToggle</key>
+                <label>Apply 'Deadly weapon tweaks' config</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Guns shoot faster, harder, and have more armor pen</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <li Class="XmlExtensions.Setting.Slider">
+                <key>DePaWSiTKurinCeremonialSwordCraftingRequirement</key>
+                <label>Crafting requirement: {DePaWSiTKurinCeremonialSwordCraftingRequirement}</label>
+                <min>0</min>
+                <max>20</max>
+                <decimals>0</decimals>
+                <defaultValue>10</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the crafting requirement for the Ceremonial sword (default: 10)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <li Class="XmlExtensions.Setting.Slider">
+                <key>DePaWSiTKurinPolearmCraftingRequirement</key>
+                <label>Crating Requirement: {DePaWSiTKurinPolearmCraftingRequirement}</label>
+                <min>0</min>
+                <max>20</max>
+                <decimals>0</decimals>
+                <defaultValue>14</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the crafting requirement for the polearm (default: 14)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+            </settings>
+          </li>
+        </settings>
+      </li>
+      <li Class="XmlExtensions.Setting.CollapsibleSettings">
+        <label>Apparel Tweaks (experimental)</label>
+        <headerFont>Medium</headerFont>
+        <tooltip>Changes for Kurin apparel</tooltip>
+        <settings>
+          <li Class="XmlExtensions.Setting.Group">
+            <padAbove>2</padAbove>
+            <padLeft>24</padLeft>
+            <settings>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinApparelConfigToggle</key>
+                <label>Apply config for apparel</label>
+                <defaultValue>false</defaultValue>
+              </li>
+            </settings>
+          </li>
+        </settings>
+      </li>
+      <li Class="XmlExtensions.Setting.CollapsibleSettings">
+        <label>Research Tweaks</label>
+        <headerFont>Medium</headerFont>
+        <tooltip>Changes made to Kurin research</tooltip>
+        <settings>
+          <li Class="XmlExtensions.Setting.Group">
+            <padAbove>2</padAbove>
+            <padLeft>24</padLeft>
+            <settings>
+              <!-- remove flower requirement from T3 research toggle -->
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <padAbove>2</padAbove>
+                <key>DePaWSiTKurinRemoveConvolleraRequirementToggle</key>
+                <label>Remove flower requirement for T3 research</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Appropriate tech level toggle -->
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinSetAppropriateTechLevelToggle</key>
+                <label>Change the tech level for the regular apparel to medieval</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Change the tech level for the basic, advanced, and fine clothing to medieval instead of industrial</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Make the surigum at the smithy instead of the machining table -->
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinMakeSurigumAtSmithingTableToggle</key>
+                <label>Create surigum at smithy</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Changes the recipe user from the machining table to the smithing table (not a gun)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Corrects the gunsmithing requirement on kurin guns -->
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinFixGunsmithingRequirementToggle</key>
+                <label>Removes the additional gunsmithing requirement for kurin weapons</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Correct research requirement for the polearm (combatT3 and long blades seem appropriate) -->
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinPolearmResearchRequirementsToggle</key>
+                <label>Change Polearm research requirement</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Change research requirements for the polearm to be advanced combat and long blades as it is no energy weapon</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Remove T0 clothing requirement for waterfox as it already has T4 -->
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinRemoveT0RequirementFromWaterfoxToggle</key>
+                <label>Removes the T0 clothing requirement for Waterfox, it already has T4</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostFlower</key>
+                <label>Research cost convallaria research</label>
+                <defaultValue>800</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostApparelT1</key>
+                <label>Research cost basic clothing</label>
+                <defaultValue>400</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostApparelT2</key>
+                <label>Research cost advanced clothing</label>
+                <defaultValue>800</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostApparelT3</key>
+                <label>Research cost fine clothing</label>
+                <defaultValue>1200</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostApparelT4</key>
+                <label>Research cost republic armor replicas</label>
+                <defaultValue>1600</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <padAbove>4</padAbove>
+                <key>DePaWSiTKurinResearchMarineArmorForApparelT4</key>
+                <label>Requirement moved to marine armor</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Moves the reseach requirement from Fabrication to Marine Armor.\nThis would make it so that you first need marine armor and then you can research this.\nI recommend setting this one to true and lowering the research base cost as marine armor already has a base cost of a few thousand and this is more a Kurin specific extension of that research than something entirely different.</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostCombatT2</key>
+                <label>Research cost basic combat</label>
+                <defaultValue>800</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
+                <label>Change basic combat research requirement</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Remove the smithing requirement for Basic combat and add a smithing requirement for the surigum and a flak requirement for the body armor</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostCombatT3</key>
+                <label>Research cost advanced combat</label>
+                <defaultValue>1200</defaultValue>
+                <min>0</min>
+              </li>
+              <!-- The other end for this key is to be found in the apparel folder -->
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <padAbove>4</padAbove>
+                <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
+                <label>Add flak armor to most apparel of advanced combat</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Currently there is no additional research requirement for advanced combat, making it pretty cheap compared to the other researches.\nThis adds flak as an additional requirement for most of the clothing in advanced combat.\n(When enabling this option i would recommend lowering the base cost as this would double the research requirement(this + flak))</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostCombatT4</key>
+                <label>Research cost spacer combat</label>
+                <defaultValue>1600</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric" MayRequire="Ludeon.Rimworld.Biotech">
+                <key>DePaWSiTKurinResearchCostMechtech</key>
+                <label>Research cost mechtech</label>
+                <defaultValue>400</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine" MayRequire="Ludeon.Rimworld.Biotech">
+                <spacing>8</spacing>
+              </li>
+              <!-- -->
+              <li Class="XmlExtensions.Setting.Numeric">
+                <key>DePaWSiTKurinResearchCostTurret</key>
+                <label>Research cost ancient defenses</label>
+                <defaultValue>400</defaultValue>
+                <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+            </settings>
+          </li>
+        </settings>
+      </li>
+    </settings>
+  </XmlExtensions.SettingsMenuDef>
+</Defs>

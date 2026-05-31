@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinApparelConfigToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationSequence">
+        <success>Normal</success>
+        <operations>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Helmet"]</xpath>
+            <value>
+              <recipeMaker>
+                <recipeUsers Inherit="False">
+                  <li>FabricationBench</li>
+                </recipeUsers>
+              </recipeMaker>
+            </value>
+          </li>
+          <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Armor"]</xpath>
+            <value>
+              <recipeMaker>
+                <recipeUsers Inherit="False">
+                  <li>FabricationBench</li>
+                </recipeUsers>
+              </recipeMaker>
+            </value>
+          </li>
+        </operations>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>
