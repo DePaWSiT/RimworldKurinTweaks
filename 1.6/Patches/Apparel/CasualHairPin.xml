@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCasualPinMetalToggle</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Casual_Hair_Pin"]/stuffCategories</xpath>
+        <value>
+          <stuffCategories>
+            <li>Metallic</li>
+          </stuffCategories>
+        </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCasualPinBreakThreshold</key>
+    <defaultValue>-0.06</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Casual_Hair_Pin"]/equippedStatOffsets/MentalBreakThreshold</xpath>
+        <value>
+          <MentalBreakThreshold>{DePaWSiTKurinCasualPinBreakThreshold}</MentalBreakThreshold>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+</Patch>

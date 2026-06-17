@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinSWDNegAbility</key>
+    <defaultValue>0.3</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Seductive_White_Dress"]/equippedStatOffsets/NegotiationAbility</xpath>
+        <value>
+          <NegotiationAbility>{DePaWSiTKurinSWDNegAbility}</NegotiationAbility>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+</Patch>

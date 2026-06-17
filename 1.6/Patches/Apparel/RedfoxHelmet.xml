@@ -6,7 +6,7 @@
     <defaultValue>false</defaultValue>
     <caseTrue>
       <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Armor"]</xpath>
+        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Helmet"]</xpath>
         <value>
           <recipeMaker>
             <recipeUsers Inherit="False">
@@ -19,78 +19,78 @@
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
     <modId>DePaWSiT.KurinConfigTweaks</modId>
-    <key>DePaWSiTKurinRedfoxArmorMass</key>
-    <defaultValue>1.0</defaultValue>
+    <key>DePaWSiTKurinRedfoxHelmetMass</key>
+    <defaultValue>1.5</defaultValue>
     <apply>
       <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Armor"]/statBases</xpath>
+        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Helmet"]/statBases</xpath>
         <value>
-          <Mass>{DePaWSiTKurinRedfoxArmorMass}</Mass>
+          <Mass>{DePaWSiTKurinRedfoxHelmetMass}</Mass>
         </value>
       </Operation>
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
     <modId>DePaWSiT.KurinConfigTweaks</modId>
-    <key>DePaWSiTKurinRedfoxArmorMeleeHit</key>
+    <key>DePaWSiTKurinRedfoxHelmetMeleeHit</key>
+    <defaultValue>2.0</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Helmet"]/equippedStatOffsets/MeleeHitChance</xpath>
+        <value>
+          <MeleeHitChance>{DePaWSiTKurinRedfoxHelmetMeleeHit}</MeleeHitChance>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinRedfoxHelmetAimDelay</key>
+    <defaultValue>-0.2</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Helmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
+        <value>
+          <AimingDelayFactor>{DePaWSiTKurinRedfoxHelmetAimDelay}</AimingDelayFactor>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinRedfoxHelmetDodgeChance</key>
     <defaultValue>3.0</defaultValue>
     <apply>
       <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Armor"]/equippedStatOffsets/MeleeHitChance</xpath>
+        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Helmet"]/equippedStatOffsets/MeleeDodgeChance</xpath>
         <value>
-          <MeleeHitChance>{DePaWSiTKurinRedfoxArmorMeleeHit}</MeleeHitChance>
+          <MeleeDodgeChance>{DePaWSiTKurinRedfoxHelmetDodgeChance}</MeleeDodgeChance>
         </value>
       </Operation>
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
     <modId>DePaWSiT.KurinConfigTweaks</modId>
-    <key>DePaWSiTKurinRedfoxArmorShootingAccuracy</key>
-    <defaultValue>3.0</defaultValue>
+    <key>DePaWSiTKurinRedfoxHelmetMoveSpeed</key>
+    <defaultValue>0.1</defaultValue>
     <apply>
       <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Armor"]/equippedStatOffsets/ShootingAccuracyPawn</xpath>
+        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Helmet"]/equippedStatOffsets/MoveSpeed</xpath>
         <value>
-          <ShootingAccuracyPawn>{DePaWSiTKurinRedfoxArmorShootingAccuracy}</ShootingAccuracyPawn>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
-    <key>DePaWSiTKurinRedfoxArmorDodgeChance</key>
-    <defaultValue>3.0</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Armor"]/equippedStatOffsets/MeleeDodgeChance</xpath>
-        <value>
-          <MeleeDodgeChance>{DePaWSiTKurinRedfoxArmorDodgeChance}</MeleeDodgeChance>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
-    <key>DePaWSiTKurinRedfoxArmorMoveSpeed</key>
-    <defaultValue>0.40</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Armor"]/equippedStatOffsets/MoveSpeed</xpath>
-        <value>
-          <MoveSpeed>{DePaWSiTKurinRedfoxArmorMoveSpeed}</MoveSpeed>
+          <MoveSpeed>{DePaWSiTKurinRedfoxHelmetMoveSpeed}</MoveSpeed>
         </value>
       </Operation>
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting" MayRequire="Ludeon.Rimworld.Odyssey">
     <modId>DePaWSiT.KurinConfigTweaks</modId>
-    <key>DePaWSiTKurinRedfoxArmorVacuumResistance</key>
-    <defaultValue>0.3</defaultValue>
+    <key>DePaWSiTKurinRedfoxHelmetVacuumResistance</key>
+    <defaultValue>0.65</defaultValue>
     <apply>
       <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Armor"]/equippedStatOffsets/VacuumResistance</xpath>
+        <xpath>Defs/ThingDef[defName = "Kurin_Redfox_Helmet"]/equippedStatOffsets/VacuumResistance</xpath>
         <value>
-          <VacuumResistance MayRequire="Ludeon.Rimworld.Odyssey">{DePaWSiTKurinRedfoxArmorVacuumResistance}</VacuumResistance>
+          <VacuumResistance MayRequire="Ludeon.Rimworld.Odyssey">{DePaWSiTKurinRedfoxHelmetVacuumResistance}</VacuumResistance>
         </value>
       </Operation>
     </apply>

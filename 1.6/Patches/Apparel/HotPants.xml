@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinHotPantsPlantSpeed</key>
+    <defaultValue>0</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hot_Pants"]/equippedStatOffsets</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hot_Pants"]</xpath>
+          <value>
+            <equippedStatOffsets>
+              <PlantWorkSpeed>{DePaWSiTKurinHotPantsPlantSpeed}</PlantWorkSpeed>
+            </equippedStatOffsets>
+          </value>
+        </nomatch>
+        <match Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hot_Pants"]/equippedStatOffsets</xpath>
+          <value>
+            <PlantWorkSpeed>{DePaWSiTKurinHotPantsPlantSpeed}</PlantWorkSpeed>
+          </value>
+        </match>
+      </Operation>
+    </apply>
+  </Operation>
+</Patch>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCuteDressMoveSpeed</key>
+    <defaultValue>0.40</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Cute_Dress"]/equippedStatOffsets/MoveSpeed</xpath>
+        <value>
+          <MoveSpeed>{DePaWSiTKurinCuteDressMoveSpeed}</MoveSpeed>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCuteDressSocialImpact</key>
+    <defaultValue>0</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Cute_Dress"]/equippedStatOffsets</xpath>
+        <value>
+          <SocialImpact>{DePaWSiTKurinCuteDressSocialImpact}</SocialImpact>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCuteDressTradeImprovement</key>
+    <defaultValue>0</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Cute_Dress"]/equippedStatOffsets</xpath>
+        <value>
+          <TradePriceImprovement>{DePaWSiTKurinCuteDressTradeImprovement}</TradePriceImprovement>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+</Patch>

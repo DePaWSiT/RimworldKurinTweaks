@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
+  <!-- TODO: hybrid patch pls -->
   <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
+  <Operation Class="XmlExtensions.HybridPatch">
+    <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Bikini_Armor"]</xpath>
+    <value>
+      <recipeMaker Operation="Safe">
+        <researchPrerequisites Operation="Safe">
+          <li Condition="{DePaWSiTKurinResearchAddFlakToCombatT3Toggle}" Operation="Add">FlakArmor</li>
+        </researchPrerequisites>
+      </recipeMaker>
+    </value>
+  </Operation>
+  <!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
+  <!--   <modId>DePaWSiT.KurinConfigTweaks</modId> -->
+  <!--   <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key> -->
+  <!--   <defaultValue>false</defaultValue> -->
+  <!--   <caseTrue> -->
+  <!--     <Operation Class="PatchOperationConditional"> -->
+  <!--       <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Bikini_Armor"]/recipeMaker</xpath> -->
+  <!--       <nomatch Class="PatchOperationAdd"> -->
+  <!--         <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]</xpath> -->
+  <!--         <value> -->
+  <!--           <recipeMaker> -->
+  <!--             <researchPrerequisites> -->
+  <!--               <li>FlakArmor</li> -->
+  <!--             </researchPrerequisites> -->
+  <!--           </recipeMaker> -->
+  <!--         </value> -->
+  <!--       </nomatch> -->
+  <!--       <match Class="PatchOperationConditional"> -->
+  <!--         <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]/recipeMaker/researchPrerequisites</xpath> -->
+  <!--         <nomatch Class="PatchOperationAdd"> -->
+  <!--           <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]/recipeMaker</xpath> -->
+  <!--           <value> -->
+  <!--             <researchPrerequisites> -->
+  <!--               <li>FlakArmor</li> -->
+  <!--             </researchPrerequisites> -->
+  <!--           </value> -->
+  <!--         </nomatch> -->
+  <!--         <match Class="PatchOperationAdd"> -->
+  <!--           <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]/recipeMaker/researchPrerequisites</xpath> -->
+  <!--           <value> -->
+  <!--             <li>FlakArmor</li> -->
+  <!--           </value> -->
+  <!--         </match> -->
+  <!--       </match> -->
+  <!--     </Operation> -->
+  <!--   </caseTrue> -->
+  <!-- </Operation> -->
   <Operation Class="XmlExtensions.OptionalPatch">
     <modId>DePaWSiT.KurinConfigTweaks</modId>
-    <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
+    <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
       <Operation Class="PatchOperationConditional">
@@ -12,30 +60,43 @@
           <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]</xpath>
           <value>
             <recipeMaker>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
+              <recipeUsers Inherit="False">
+                <li>TableMachining</li>
+              </recipeUsers>
             </recipeMaker>
           </value>
         </nomatch>
         <match Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]/recipeMaker/researchPrerequisites</xpath>
+          <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]/recipeMaker/recipeUsers</xpath>
           <nomatch Class="PatchOperationAdd">
             <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]/recipeMaker</xpath>
             <value>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
+              <recipeUsers Inherit="False">
+                <li>TableMachining</li>
+              </recipeUsers>
             </value>
           </nomatch>
           <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]/recipeMaker/researchPrerequisites</xpath>
+            <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Bikini_Armor"]/recipeMaker/recipeUsers</xpath>
             <value>
-              <li>FlakArmor</li>
+              <li>TableMachining</li>
             </value>
           </match>
         </match>
       </Operation>
     </caseTrue>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinBikiniArmorMass</key>
+    <defaultValue>0.40</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Bikini_Armor"]/statBases</xpath>
+        <value>
+          <Mass>{DePaWSiTKurinBikiniArmorMass}</Mass>
+        </value>
+      </Operation>
+    </apply>
   </Operation>
 </Patch>

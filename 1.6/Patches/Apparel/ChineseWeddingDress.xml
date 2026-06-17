@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCWDSocialImpact</key>
+    <defaultValue>0.25</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Chinese_Wedding_Dress"]/equippedStatOffsets/SocialImpact</xpath>
+        <value>
+          <SocialImpact>{DePaWSiTKurinCWDSocialImpact}</SocialImpact>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCWDTradePriceImprovement</key>
+    <defaultValue>0.4</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Chinese_Wedding_Dress"]/equippedStatOffsets/TradePriceImprovement</xpath>
+        <value>
+          <TradePriceImprovement>{DePaWSiTKurinCWDTradePriceImprovement}</TradePriceImprovement>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+</Patch>

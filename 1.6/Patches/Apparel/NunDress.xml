@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinNunDressTendSpeed</key>
+    <defaultValue>0.2</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Nun_Dress"]/equippedStatOffsets/MedicalTendSpeed</xpath>
+        <value>
+          <SocialImpact>{DePaWSiTKurinNunDressTendSpeed}</SocialImpact>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinNunDressTendQuality</key>
+    <defaultValue>0.1</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Nun_Dress"]/equippedStatOffsets/MedicalTendQuality</xpath>
+        <value>
+          <TradePriceImprovement>{DePaWSiTKurinNunDressTendQuality}</TradePriceImprovement>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+</Patch>

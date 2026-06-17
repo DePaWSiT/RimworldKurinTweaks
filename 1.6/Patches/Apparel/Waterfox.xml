@@ -3,7 +3,7 @@
   <!-- Create at FabricationBench -->
   <Operation Class="XmlExtensions.OptionalPatch">
     <modId>DePaWSiT.KurinConfigTweaks</modId>
-    <key>DePaWSiTKurinApparelConfigToggle</key>
+    <key>DePaWSiTKurinPowerArmorFabricationToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
       <Operation Class="PatchOperationAdd">
@@ -34,5 +34,31 @@
         <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/recipeMaker/researchPrerequisites/li[text()="Kurin_ApparelT4"]</xpath>
       </Operation>
     </caseTrue>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinWaterfoxArmorMass</key>
+    <defaultValue>0.20</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/statBases</xpath>
+        <value>
+          <Mass>{DePaWSiTKurinWaterfoxArmorMass}</Mass>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinWaterfoxArmorWorkSpeed</key>
+    <defaultValue>0.3</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/equippedStatOffsets/WorkSpeedGlobal</xpath>
+        <value>
+          <WorkSpeedGlobal>{DePaWSiTKurinWaterfoxArmorWorkSpeed}</WorkSpeedGlobal>
+        </value>
+      </Operation>
+    </apply>
   </Operation>
 </Patch>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
+  <!-- TODO: hybrid patch operation -->
   <!-- side effect of removing smithing from CombatT2 so will add flak as requirement for the body armor -->
   <Operation Class="XmlExtensions.OptionalPatch">
     <modId>DePaWSiT.KurinConfigTweaks</modId>
@@ -15,6 +16,56 @@
             </researchPrerequisites>
           </recipeMaker>
         </value>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinBodyArmorStuffRating</key>
+    <defaultValue>1.00</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Middle_Body_Armor"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>{DePaWSiTKurinBodyArmorStuffRating}</StuffEffectMultiplierArmor>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName = "Kurin_Middle_Body_Armor"]/recipeMaker</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Kurin_Middle_Body_Armor"]</xpath>
+          <value>
+            <recipeMaker>
+              <recipeUsers Inherit="False">
+                <li>TableMachining</li>
+              </recipeUsers>
+            </recipeMaker>
+          </value>
+        </nomatch>
+        <match Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Kurin_Middle_Body_Armor"]/recipeMaker/recipeUsers</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Kurin_Middle_Body_Armor"]/recipeMaker</xpath>
+            <value>
+              <recipeUsers Inherit="False">
+                <li>TableMachining</li>
+              </recipeUsers>
+            </value>
+          </nomatch>
+          <match Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Kurin_Middle_Body_Armor"]/recipeMaker/recipeUsers</xpath>
+            <value>
+              <li>TableMachining</li>
+            </value>
+          </match>
+        </match>
       </Operation>
     </caseTrue>
   </Operation>

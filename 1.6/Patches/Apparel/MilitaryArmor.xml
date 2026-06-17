@@ -38,4 +38,43 @@
       </Operation>
     </caseTrue>
   </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinMilitaryUniformMass</key>
+    <defaultValue>0.40</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Military_Uniform"]/statBases</xpath>
+        <value>
+          <Mass>{DePaWSiTKurinMilitaryUniformMass}</Mass>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinMilitaryUniformStuffEffectMultiplier</key>
+    <defaultValue>0.30</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Military_Uniform"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>{DePaWSiTKurinMilitaryUniformStuffEffectMultiplier}</StuffEffectMultiplierArmor>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinMilitaryUniformShootingAccuracy</key>
+    <defaultValue>2.0</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Military_Uniform"]/equippedStatOffsets/ShootingAccuracyPawn</xpath>
+        <value>
+          <ShootingAccuracyPawn>{DePaWSiTKurinMilitaryUniformShootingAccuracy}</ShootingAccuracyPawn>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
 </Patch>

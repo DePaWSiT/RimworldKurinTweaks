@@ -38,6 +38,11 @@
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Sword</text>
+                <font>Small</font>
+                <anchor>Middle</anchor>
+              </li>
               <li Class="XmlExtensions.Setting.Slider">
                 <key>DePaWSiTKurinCeremonialSwordCraftingRequirement</key>
                 <label>Crafting requirement: {DePaWSiTKurinCeremonialSwordCraftingRequirement}</label>
@@ -52,6 +57,11 @@
               </li>
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Polearm</text>
+                <font>Small</font>
+                <anchor>Middle</anchor>
               </li>
               <li Class="XmlExtensions.Setting.Slider">
                 <key>DePaWSiTKurinPolearmCraftingRequirement</key>
@@ -73,7 +83,7 @@
         </settings>
       </li>
       <li Class="XmlExtensions.Setting.CollapsibleSettings">
-        <label>Apparel Tweaks (experimental)</label>
+        <label>Apparel Tweaks (Alpha)</label>
         <headerFont>Medium</headerFont>
         <tooltip>Changes for Kurin apparel</tooltip>
         <settings>
@@ -82,9 +92,1322 @@
             <padLeft>24</padLeft>
             <settings>
               <li Class="XmlExtensions.Setting.Checkbox">
-                <key>DePaWSiTKurinApparelConfigToggle</key>
-                <label>Apply config for apparel</label>
+                <padAbove>4</padAbove>
+                <key>DePaWSiTKurinTailorBenchToggle</key>
+                <label>Apply tailor bench changes</label>
                 <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>- Add Electricity as research requirement to existing 'electric' kurin tailor benches.\n- Add 'manual' tailor benches.\n- Set bench cost to match the vanilla tailoring and electric bench.</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
+                <label>Metal recipes at the Machining table</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Recipes that require Metal instead of Fabric will go to the machining table instead of the kurin tailor table</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Advanced clothing -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Advanced clothing</text>
+                <anchor>Middle</anchor>
+                <font>Medium</font>
+              </li>
+              <!-- Casual pin -->
+              <li Class="XmlExtensions.Setting.Text">
+                <padAbove>2</padAbove>
+                <text>Casual hair pin</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <padAbove>4</padAbove>
+                <key>DePaWSiTKurinCasualPinMetalToggle</key>
+                <label>Enable metal casual hair pin</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Replaces the fabric/leather with metal for the casual hair pin</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mental break threshold</label>
+                <key>DePaWSiTKurinCasualPinBreakThreshold</key>
+                <defaultValue>-0.06</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mental break threshold offset when wearing the pin (default -0.06 = -6%)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Casual wear -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Casual wear</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Casual wear dodge chance</label>
+                <key>DePaWSiTKurinCasualWearDodgeChance</key>
+                <defaultValue>0.0</defaultValue>
+                <decimals>1</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>This piece of wear doesn't actually have a stat associated with it so i just picked one you can add if you want (default 0)\nI don't know exactly how this value works in-game so experiment and see what works</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Hoodie -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Hoodie</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Hoodie carrying capacity increase</label>
+                <key>DePaWSiTKurinHoodieCarryingCapacity</key>
+                <defaultValue>0</defaultValue>
+                <decimals>1</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>This piece of wear doesn't actually have a stat associated with it so i just picked one you can add if you want (default 0)\nFor the hoodie i picked carrying capacity because of deep pockets you can put stuff in</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Hot pants -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Hot pants</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Hot pants plant speed modifier</label>
+                <key>DePaWSiTKurinHotPantsPlantSpeed</key>
+                <defaultValue>0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>This piece of wear doesn't actually have a stat associated with it so i just picked one you can add if you want (default 0)\nFor the hot pants picked plant work speed just for fun, seemed somewhat fitting</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- One piece dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>One piece dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>One Piece trade price improvement</label>
+                <key>DePaWSiTKurinOnePieceDressTradeImprovement</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The trade price improvement for the one piece dress (default 0.1).\nKeep in mind that by default, kurin alrady have a negotiation ability of 1.3 and sell price factor of 1.2</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Open back knit -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Open back knit</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Open back knit social impact</label>
+                <key>DePaWSiTKurinOpenBackKnitSocialImpact</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The social impact improvement for the open back knit.\nDefault kurin already has a factor of 1.2 applied (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Open shoulder knit -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Open shoulder knit</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Shoulder knit negotiation ability</label>
+                <key>DePaWSiTKurinOpenShoulderNegAbility</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The Negotation ability improvement for the open shoulder knit.\nDefault kurin already has a factor of 1.3 applied (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Pajamas -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Pajamas</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Pajamas rest rate</label>
+                <key>DePaWSiTKurinPajamasRestMultiplier</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Rest rate multiplier for the pajamas (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Advanced clothing -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Fine clothing</text>
+                <anchor>Middle</anchor>
+                <font>Medium</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Black Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Black Dress social impact</label>
+                <key>DePaWSiTKurinBlackDressSocialImpact</key>
+                <defaultValue>0.25</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Social impact modifier for the black dress (default 0.25)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Black Dress trade impact</label>
+                <key>DePaWSiTKurinBlackDressTradeImprovement</key>
+                <defaultValue>0.4</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Trade price modifier for the black dress (default 0.4)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Black Wedding Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Black Wedding Dress social impact</label>
+                <key>DePaWSiTKurinBWDSocialImpact</key>
+                <defaultValue>0.25</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Social impact modifier for the black wedding dress (default 0.25)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Black Wedding Dress trade impact</label>
+                <key>DePaWSiTKurinBWDTradeImprovement</key>
+                <defaultValue>0.4</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Trade price modifier for the black wedding dress (default 0.4)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Chinese Wedding Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Chinese Wedding Dress social impact</label>
+                <key>DePaWSiTKurinCWDSocialImpact</key>
+                <defaultValue>0.25</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Social impact modifier for the chinese wedding dress (default 0.25)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Chinese Wedding Dress trade impact</label>
+                <key>DePaWSiTKurinCWDTradeImprovement</key>
+                <defaultValue>0.4</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Trade price modifier for the chinese wedding dress (default 0.4)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Cute dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Cute Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Cute Dress move speed</label>
+                <key>DePaWSiTKurinCuteDressMoveSpeed</key>
+                <defaultValue>0.4</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Move speed modifier for the cute dress (default 0.4)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Cute Dress social impact</label>
+                <key>DePaWSiTKurinCuteDressSocialImpact</key>
+                <defaultValue>0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The cute dress does not have this value by default but i added it as an alternative to move speed (default 0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Cute Dress trade impact</label>
+                <key>DePaWSiTKurinCuteDressTradeImprovement</key>
+                <defaultValue>0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The cute dress does not have this value by default but i added it as an alternative to move speed (default 0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Gothic dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Gothic Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Gothic Dress psychic sensitivity</label>
+                <key>DePaWSiTKurinGothicDressSensitivity</key>
+                <defaultValue>0.25</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Psychic sensitivy modifier for the gothic dress (default 0.25)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric" MayRequire="Ludeon.Rimworld.Royalty">
+                <padAbove>4</padAbove>
+                <label>Gothic Dress entropy offset</label>
+                <key>DePaWSiTKurinGothicDressEntropyRecoveryRate</key>
+                <defaultValue>0.03</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text" MayRequire="Ludeon.Rimworld.Royalty">
+                <text>Entropy recovery rate for the gothic dress (default 0.03)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Gothic hair pin -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Gothic Hair Pin</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Gothic hair pin psychic sensitivity</label>
+                <key>DePaWSiTKurinGothicPinSensitivity</key>
+                <defaultValue>0.15</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Psychic sensitivy modifier for the gothic hair pin (default 0.15)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- work jumpsuit -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Jumpsuit</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Jumpsuit workspeed</label>
+                <key>DePaWSiTKurinJumpsuitWorkSpeed</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Work speed modifier for the work jumpsuit (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Luxery dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Luxery Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Luxery Dress social impact</label>
+                <key>DePaWSiTKurinLuxuryDressSocialImpact</key>
+                <defaultValue>0.4</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Social impact modifier for the luxery dress (default 0.4)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Luxury Dress trade impact</label>
+                <key>DePaWSiTKurinLuxuryDressTradeImprovement</key>
+                <defaultValue>0.25</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Trade price modifier for the luxery dress (default 0.25)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Nun dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Nun Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Nun Dress tend speed</label>
+                <key>DePaWSiTKurinNunDressTendSpeed</key>
+                <defaultValue>0.2</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Tend speed modifier for the nun dress (default 0.2)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Nun Dress tend quality</label>
+                <key>DePaWSiTKurinNunDressTendQuality</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Tend quality modifier for the nun dress (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Research clothing -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Research Clothing</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Research Clothing hacking speed</label>
+                <key>DePaWSiTKurinResearchClothingHackingSpeed</key>
+                <defaultValue>0.3</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Hacking speed modifier for the research clothing (default 0.3)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Research Clothing research speed</label>
+                <key>DePaWSiTKurinResearchClothingResearchSpeed</key>
+                <defaultValue>0.2</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Research speed modifier for the research clothing (default 0.2)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Seductive black dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Seductive Black Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Seductive Black Dress negotiation ability</label>
+                <key>DePaWSiTKurinSBDNegAbility</key>
+                <defaultValue>0.3</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Negotiation ability modifier for the seductive black dress (default 0.3)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Seductive white dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Seductive White Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Seductive White Dress negotiation ability</label>
+                <key>DePaWSiTKurinSWDNegAbility</key>
+                <defaultValue>0.3</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Negotiation ability modifier for the seductive white dress (default 0.3)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Traditional fancy dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Traditional Fancy Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Traditional Fancy Dress social impact</label>
+                <key>DePaWSiTKurinTFDSocialImpact</key>
+                <defaultValue>0.15</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>social impact modifier for the traditional fancy dress (default 0.15)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Traditional Fancy Dress negotiation ability</label>
+                <key>DePaWSiTKurinTFDNegAbility</key>
+                <defaultValue>0.15</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Negotiation ability modifier for the traditional fancy dress (default 0.15)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Traditional Fancy Dress trade improvement</label>
+                <key>DePaWSiTKurinTFDTradeImprovement</key>
+                <defaultValue>0.15</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Trade improvement modifier for the traditional fancy dress (default 0.15)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Traditional hair pin -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Traditional Hair Pin</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Traditional Hair Pin trade improvement</label>
+                <key>DePaWSiTKurinTHPTradeImprovement</key>
+                <defaultValue>0.15</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Trade improvement modifier for the traditional hair pin (default 0.15)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Traditional luxery dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Traditional Luxery Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Traditional Luxery Dress social impact</label>
+                <key>DePaWSiTKurinTLDSocialImpact</key>
+                <defaultValue>0.3</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Social impact modifier for the traditional luxery dress (default 0.3)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Traditional simple dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Traditional Simple Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Traditional Simple Dress trade improvement</label>
+                <key>DePaWSiTKurinTSDTradeImprovement</key>
+                <defaultValue>0.3</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Trade price modifier for the traditional simple dress (default 0.3)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Traditional luxury dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Traditional Luxury Dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>White Wedding Dress social impact</label>
+                <key>DePaWSiTKurinWWDSocialImpact</key>
+                <defaultValue>0.4</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Social impact modifier for the white wedding dress (default 0.4)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>White Wedding Dress trade improvement</label>
+                <key>DePaWSiTKurinWWDTradeImprovement</key>
+                <defaultValue>0.25</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Trade price modifier for the white wedding dress (default 0.25)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Basic combat -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Basic Combat</text>
+                <anchor>Middle</anchor>
+                <font>Medium</font>
+              </li>
+              <!-- Body armor -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Body armor</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Stuff multiplier</label>
+                <key>DePaWSiTKurinBodyArmorStuffRating</key>
+                <defaultValue>1.00</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the material multiplier for the body armor ratings (default 1.00 = 100%)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Work to make</label>
+                <key>DePaWSiTKurinBodyArmorWorkToMake</key>
+                <defaultValue>12000</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the amount of work needed to create this item.\nFormula: value / 60 = work (default 12000). for reference the flak vest has a default of 8000</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Advanced Combat -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Advanced Combat</text>
+                <anchor>Middle</anchor>
+                <font>Medium</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
+                <label>Metal recipes at the Machining bench</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Recipes that require Metal instead of Fabric will go to the machining bench instead of the kurin tailor bench</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Armored gothic dress -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Armored gothic dress</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Mass of armored dress</label>
+                <key>DePaWSiTKurinArmorGothWeight</key>
+                <decimals>2</decimals>
+                <defaultValue>0.40</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the weight of the armored gothic dress (default 0.40)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <label>Stuff effect multiplier armor gothic dress</label>
+                <key>DePaWSiTKurinArmorGothStuffEffectMultiplier</key>
+                <decimals>2</decimals>
+                <defaultValue>0.55</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The Armor multiplier for the fabric when creating the dress (default 0.55)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Psychic sensitivy offset</label>
+                <key>DePaWSiTKurinArmorGothSensOffset</key>
+                <defaultValue>0.25</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the psychic sensitivity offset of the armored gothic dress (default 0.25)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Move speed offset</label>
+                <key>DePaWSiTKurinArmorGothMoveSpeedOffset</key>
+                <defaultValue>-0.20</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the speed offset of the armored gothic dress (default -0.20)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <padAbove>4</padAbove>
+                <key>DePaWSiTKurinAddMiddleLayerArmorGoth</key>
+                <label>Add Middle layer on armored gothic dress</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>By default the armored dress only has OnSkin which allows you to wear body armor over this. Adding the Middle layer will also make it occuppy the same layer as the body armor.</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Bikini armor -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Bikini armor</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Bikini armor</label>
+                <key>DePaWSiTKurinBikiniArmorMass</key>
+                <defaultValue>0.40</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Bikini Armor (default 0.40)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Bikini armor Headgear-->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Bikini armor Headgear</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Bikini armor Headgear</label>
+                <key>DePaWSiTKurinBikiniArmorHeadgearMass</key>
+                <defaultValue>0.20</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Bikini Armor Headgear (default 0.20)\nFor reference, the Flak helmet has a weight of 1.20.</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Stuff effect multiplier Bikini armor Headgear</label>
+                <key>DePaWSiTKurinBikiniArmorHeadgearStuffEffectMultiplier</key>
+                <defaultValue>0.30</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the effect the material has when creating the Bikini armor headgear (default 0.30)\n For reference, the flak helmet has a value of 0.70 but it does not have the equipment offsets.</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee hit chance offset Bikini armor headgear</label>
+                <key>DePaWSiTKurinBikiniArmorHeadgearMeleeHit</key>
+                <defaultValue>1.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The melee hit chance offset for the Bikini armor headgear (default 1.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee dodge chance offset Bikini armor headgear</label>
+                <key>DePaWSiTKurinBikiniArmorHeadgearMeleeDodge</key>
+                <defaultValue>2.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The Melee dodge chance offset for the Bikini armor headgear (default 2.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Movespeed modifier Bikini armor headgear</label>
+                <key>DePaWSiTKurinBikiniArmorHeadgearMovespeed</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The move speed offset for the Bikini armor headgear (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Black Wedding Headwear BWH -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Black Wedding Headwear</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Black Wedding Headwear</label>
+                <key>DePaWSiTKurinBWHMass</key>
+                <defaultValue>0.20</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Black wedding headwear (default 0.20)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Stuff effect multiplier Black wedding headwear</label>
+                <key>DePaWSiTKurinBWHStuffEffectMultiplier</key>
+                <defaultValue>0.30</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the effect the material has when creating the Black wedding headwear (default 0.30)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee hit chance offset Black wedding headwear</label>
+                <key>DePaWSiTKurinBWHMeleeHit</key>
+                <defaultValue>1.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The melee hit chance offset for the Black wedding headwear (default 1.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee dodge chance offset Black wedding headwear</label>
+                <key>DePaWSiTKurinBWHMeleeDodge</key>
+                <defaultValue>2.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The Melee dodge chance offset for the Black wedding headwear (default 2.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Movespeed modifier Black wedding headwear</label>
+                <key>DePaWSiTKurinBWHMovespeed</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The move speed offset for the Black wedding headwear (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Chinese Wedding Headwear CWH -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Chinese Wedding Headwear</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Chinese Wedding Headwear</label>
+                <key>DePaWSiTKurinCWHMass</key>
+                <defaultValue>0.20</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Chinese wedding headwear (default 0.20)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Stuff effect multiplier Chinese wedding headwear</label>
+                <key>DePaWSiTKurinCWHStuffEffectMultiplier</key>
+                <defaultValue>0.30</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the effect the material has when creating Chinese wedding headwear (default 0.30)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee hit chance offset Chinese wedding headwear</label>
+                <key>DePaWSiTKurinCWHMeleeHit</key>
+                <defaultValue>1.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The melee hit chance offset for the Chinese wedding headwear (default 1.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee dodge chance offset Chinese wedding headwear</label>
+                <key>DePaWSiTKurinCWHMeleeDodge</key>
+                <defaultValue>2.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The Melee dodge chance offset for the Chinese wedding headwear (default 2.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Movespeed modifier Chinese wedding headwear</label>
+                <key>DePaWSiTKurinCWHMovespeed</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The move speed offset for the Chinese wedding headwear (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- White Wedding Headwear CWH -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>White Wedding Headwear</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass White Wedding Headwear</label>
+                <key>DePaWSiTKurinWWHMass</key>
+                <defaultValue>0.20</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the White wedding headwear (default 0.20)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Stuff effect multiplier White wedding headwear</label>
+                <key>DePaWSiTKurinWWHStuffEffectMultiplier</key>
+                <defaultValue>0.30</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the effect the material has when creating White wedding headwear (default 0.30)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee hit chance offset White wedding headwear</label>
+                <key>DePaWSiTKurinWWHMeleeHit</key>
+                <defaultValue>1.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The melee hit chance offset for the White wedding headwear (default 1.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee dodge chance offset White wedding headwear</label>
+                <key>DePaWSiTKurinWWHMeleeDodge</key>
+                <defaultValue>2.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The Melee dodge chance offset for the White wedding headwear (default 2.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Movespeed modifier White wedding headwear</label>
+                <key>DePaWSiTKurinWWHMovespeed</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The move speed offset for the White wedding headwear (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Military Uniform -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Military Uniform</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Military uniform</label>
+                <key>DePaWSiTKurinMilitaryUniformMass</key>
+                <defaultValue>0.40</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Military uniform (default 0.40)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Stuff effect multiplier Military uniform</label>
+                <key>DePaWSiTKurinMilitaryUniformStuffEffectMultiplier</key>
+                <defaultValue>0.30</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the effect the material has when creating the Military uniform (default 0.30)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Shooting accuracy offset for the Military uniform</label>
+                <key>DePaWSiTKurinMilitaryUniformShootingAccuracy</key>
+                <defaultValue>2.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The shooting accuracy offset for the Military uniform (default 2.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Military Helmet -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Military Helmet</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Military Helmet</label>
+                <key>DePaWSiTKurinMilitaryHelmetMass</key>
+                <defaultValue>0.20</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Military helmet (default 0.20)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Stuff effect multiplier Military helmet</label>
+                <key>DePaWSiTKurinMilitaryHelmetStuffEffectMultiplier</key>
+                <defaultValue>0.45</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the effect the material has when creating the Military helmet (default 0.45)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Aming time offset for the Military helmet</label>
+                <key>DePaWSiTKurinMilitaryHelmetAimTime</key>
+                <defaultValue>-0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The Aiming time offset for the Military helmet (default -0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Republic armor -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Republic armor</text>
+                <anchor>Middle</anchor>
+                <font>Medium</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <padAbove>2</padAbove>
+                <key>DePaWSiTKurinPowerArmorFabricationToggle</key>
+                <label>Republic armor at fabrication bench</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Sets the redfox and waterfox armor to be made at the Fabrication bench instead of the default tailor bench.</text>
+                <color>(163,177,188)</color>
+              </li>
+              <!-- Redfox armor -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Redfox armor</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Redfox armor</label>
+                <key>DePaWSiTKurinRedfoxArmorMass</key>
+                <defaultValue>1.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Redfox armor (default 1.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee hit chance offset</label>
+                <key>DePaWSiTKurinRedfoxArmorMeleeHit</key>
+                <defaultValue>3.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Melee hit chance offset for the Redfox armor (default 3.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Shooting accuracy offset</label>
+                <key>DePaWSiTKurinRedfoxArmorShootingAccuracy</key>
+                <defaultValue>3.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The shooting accuracy offset for the Redfox armor (default 3.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee Dodge chance offset</label>
+                <key>DePaWSiTKurinRedfoxArmorDodgeChance</key>
+                <defaultValue>9.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The dodge chance offset for the Redfox armor (default 9.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Move speed offset</label>
+                <key>DePaWSiTKurinRedfoxArmorMoveSpeed</key>
+                <defaultValue>9.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The move speed offset for the Redfox armor (default 0.40)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric" MayRequire="Ludeon.Rimworld.Odyssey">
+                <padAbove>4</padAbove>
+                <label>vacuum resistance offset</label>
+                <key>DePaWSiTKurinRedfoxArmorVacuumResistance</key>
+                <defaultValue>0.3</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text" MayRequire="Ludeon.Rimworld.Odyssey">
+                <text>The vaccuum resistance offset for the Redfox armor (default 0.30)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Redfox helmet -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Redfox helmet</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Redfox helmet</label>
+                <key>DePaWSiTKurinRedfoxHelmetMass</key>
+                <defaultValue>1.5</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Redfox helmet (default 1.5)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee hit chance offset</label>
+                <key>DePaWSiTKurinRedfoxHelmetMeleeHit</key>
+                <defaultValue>2.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Melee hit chance offset for the Redfox armor (default 2.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Aiming time offset</label>
+                <key>DePaWSiTKurinRedfoxHelmetAimDelay</key>
+                <defaultValue>-0.2</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The aiming time offset for the Redfox helmet (default -0.2)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Melee Dodge chance offset</label>
+                <key>DePaWSiTKurinRedfoxHelmetDodgeChance</key>
+                <defaultValue>3.0</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The dodge chance offset for the Redfox helmet (default 3.0)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Move speed offset</label>
+                <key>DePaWSiTKurinRedfoxHelmetMoveSpeed</key>
+                <defaultValue>0.1</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>The move speed offset for the Redfox helmet (default 0.1)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric" MayRequire="Ludeon.Rimworld.Odyssey">
+                <padAbove>4</padAbove>
+                <label>vacuum resistance offset</label>
+                <key>DePaWSiTKurinRedfoxHelmetVacuumResistance</key>
+                <defaultValue>0.65</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text" MayRequire="Ludeon.Rimworld.Odyssey">
+                <text>The vaccuum resistance offset for the Redfox helmet (default 0.65)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
+              </li>
+              <!-- Waterfox armor -->
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Waterfox Armor</text>
+                <anchor>Middle</anchor>
+                <font>Small</font>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Mass Waterfox armor</label>
+                <key>DePaWSiTKurinWaterfoxArmorMass</key>
+                <defaultValue>0.20</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the mass of the Waterfox armor (default 0.20)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Global work speed offset</label>
+                <key>DePaWSiTKurinWaterfoxArmorWorkSpeed</key>
+                <defaultValue>0.3</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Global work speed offset for the Waterfox armor (default 0.3)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.GapLine">
+                <spacing>8</spacing>
               </li>
             </settings>
           </li>
@@ -101,7 +1424,6 @@
             <settings>
               <!-- remove flower requirement from T3 research toggle -->
               <li Class="XmlExtensions.Setting.Checkbox">
-                <padAbove>2</padAbove>
                 <key>DePaWSiTKurinRemoveConvolleraRequirementToggle</key>
                 <label>Remove flower requirement for T3 research</label>
                 <defaultValue>false</defaultValue>
@@ -166,53 +1488,74 @@
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost convallaria -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostFlower</key>
                 <label>Research cost convallaria research</label>
                 <defaultValue>800</defaultValue>
                 <min>0</min>
               </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Research to unlock synthread producing flower (default 800 Industrial)</text>
+                <color>(163,177,188)</color>
+              </li>
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost Basic clothing -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostApparelT1</key>
                 <label>Research cost basic clothing</label>
                 <defaultValue>400</defaultValue>
                 <min>0</min>
               </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Basic clothing research base cost (default 400 Industrial)</text>
+                <color>(163,177,188)</color>
+              </li>
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost advanced clothing -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostApparelT2</key>
                 <label>Research cost advanced clothing</label>
                 <defaultValue>800</defaultValue>
                 <min>0</min>
               </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Advanced clothing research base cost (default 800 Industrial)</text>
+                <color>(163,177,188)</color>
+              </li>
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost fine clothing -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostApparelT3</key>
                 <label>Research cost fine clothing</label>
                 <defaultValue>1200</defaultValue>
                 <min>0</min>
               </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Fine clothing research base cost (default 1200 Industrial)</text>
+                <color>(163,177,188)</color>
+              </li>
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost for republic armor -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostApparelT4</key>
                 <label>Research cost republic armor replicas</label>
                 <defaultValue>1600</defaultValue>
                 <min>0</min>
               </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Republic armor replicas research base cost (default 1600 Spacer)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <!-- Marine requirement for republic armor -->
               <li Class="XmlExtensions.Setting.Checkbox">
                 <padAbove>4</padAbove>
                 <key>DePaWSiTKurinResearchMarineArmorForApparelT4</key>
@@ -220,19 +1563,24 @@
                 <defaultValue>false</defaultValue>
               </li>
               <li Class="XmlExtensions.Setting.Text">
-                <text>Moves the reseach requirement from Fabrication to Marine Armor.\nThis would make it so that you first need marine armor and then you can research this.\nI recommend setting this one to true and lowering the research base cost as marine armor already has a base cost of a few thousand and this is more a Kurin specific extension of that research than something entirely different.</text>
+                <text>Moves the reseach requirement from Fabrication to Marine Armor for republic armor.\nThis would make it so that you first need marine armor and then you can research this.\nI recommend setting this one to true and lowering the research base cost as marine armor already has a base cost of a few thousand and this is more a Kurin specific extension of that research than something entirely different.</text>
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost basic combat -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostCombatT2</key>
                 <label>Research cost basic combat</label>
                 <defaultValue>800</defaultValue>
                 <min>0</min>
               </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Basic combat research base cost (default 800 Industrial)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <!-- Remove smithing for basic combat -->
               <li Class="XmlExtensions.Setting.Checkbox">
                 <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
                 <label>Change basic combat research requirement</label>
@@ -245,12 +1593,16 @@
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost advanced combat -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostCombatT3</key>
                 <label>Research cost advanced combat</label>
                 <defaultValue>1200</defaultValue>
                 <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Advanced combat research base cost (default 1200 Industrial)</text>
+                <color>(163,177,188)</color>
               </li>
               <!-- The other end for this key is to be found in the apparel folder -->
               <li Class="XmlExtensions.Setting.Checkbox">
@@ -266,32 +1618,44 @@
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost space combat -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostCombatT4</key>
                 <label>Research cost spacer combat</label>
                 <defaultValue>1600</defaultValue>
                 <min>0</min>
               </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Spacer combat research base cost (default 1600 Spacer)</text>
+                <color>(163,177,188)</color>
+              </li>
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost mechtech -->
               <li Class="XmlExtensions.Setting.Numeric" MayRequire="Ludeon.Rimworld.Biotech">
                 <key>DePaWSiTKurinResearchCostMechtech</key>
                 <label>Research cost mechtech</label>
                 <defaultValue>400</defaultValue>
                 <min>0</min>
               </li>
+              <li Class="XmlExtensions.Setting.Text" MayRequire="Ludeon.Rimworld.Biotech">
+                <text>Mechtech research base cost (default 400 Spacer)</text>
+                <color>(163,177,188)</color>
+              </li>
               <li Class="XmlExtensions.Setting.GapLine" MayRequire="Ludeon.Rimworld.Biotech">
                 <spacing>8</spacing>
               </li>
-              <!-- -->
+              <!-- Research cost turret -->
               <li Class="XmlExtensions.Setting.Numeric">
                 <key>DePaWSiTKurinResearchCostTurret</key>
                 <label>Research cost ancient defenses</label>
                 <defaultValue>400</defaultValue>
                 <min>0</min>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Ancient defenses research base cost (default 400 Medieval)</text>
+                <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.GapLine">
                 <spacing>8</spacing>

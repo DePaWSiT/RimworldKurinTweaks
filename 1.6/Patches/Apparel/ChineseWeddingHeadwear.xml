@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCWHMass</key>
+    <defaultValue>0.20</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Chinese_Wedding_Headwear"]/statBases</xpath>
+        <value>
+          <Mass>{DePaWSiTKurinCWHMass}</Mass>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCWHStuffEffectMultiplier</key>
+    <defaultValue>0.30</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Chinese_Wedding_Headwear"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>{DePaWSiTKurinCWHStuffEffectMultiplier}</StuffEffectMultiplierArmor>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCWHMeleeHit</key>
+    <defaultValue>1.0</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Chinese_Wedding_Headwear"]/equippedStatOffsets/MeleeHitChance</xpath>
+        <value>
+          <MeleeHitChance>{DePaWSiTKurinCWHMeleeHit}</MeleeHitChance>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCWHMeleeDodge</key>
+    <defaultValue>2.0</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Chinese_Wedding_Headwear"]/equippedStatOffsets/MeleeDodgeChance</xpath>
+        <value>
+          <MeleeDodgeChance>{DePaWSiTKurinCWHMeleeDodge}</MeleeDodgeChance>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinCWHMovespeed</key>
+    <defaultValue>0.1</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Chinese_Wedding_Headwear"]/equippedStatOffsets/MoveSpeed</xpath>
+        <value>
+          <MoveSpeed>{DePaWSiTKurinCWHMovespeed}</MoveSpeed>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <!-- TODO: hybrid patch operation -->
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Chinese_Wedding_Headwear"]/recipeMaker</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Chinese_Wedding_Headwear"]</xpath>
+          <value>
+            <recipeMaker>
+              <recipeUsers Inherit="False">
+                <li>TableMachining</li>
+              </recipeUsers>
+            </recipeMaker>
+          </value>
+        </nomatch>
+        <match Class="PatchOperationConditional">
+          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Chinese_Wedding_Headwear"]/recipeMaker/recipeUsers</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Chinese_Wedding_Headwear"]/recipeMaker</xpath>
+            <value>
+              <recipeUsers Inherit="False">
+                <li>TableMachining</li>
+              </recipeUsers>
+            </value>
+          </nomatch>
+          <match Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Chinese_Wedding_Headwear"]/recipeMaker/recipeUsers</xpath>
+            <value>
+              <li>TableMachining</li>
+            </value>
+          </match>
+        </match>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

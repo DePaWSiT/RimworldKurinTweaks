@@ -6,6 +6,7 @@
     <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
+      <!-- NOTE: hybrid patch operation -->
       <Operation Class="PatchOperationConditional">
         <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/recipeMaker</xpath>
         <nomatch Class="PatchOperationAdd">
@@ -35,6 +36,73 @@
             </value>
           </match>
         </match>
+      </Operation>
+    </caseTrue>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinArmorGothWeight</key>
+    <defaultValue>0.40</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/statBases</xpath>
+        <value>
+          <Mass>{DePaWSiTKurinArmorGothWeight}</Mass>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinArmorGothSensOffset</key>
+    <defaultValue>0.25</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/equippedStatOffsets/PsychicSensitivityOffset</xpath>
+        <value>
+          <PsychicSensitivityOffset>{DePaWSiTKurinArmorGothSensOffset}</PsychicSensitivityOffset>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinArmorGothStuffEffectMultiplier</key>
+    <defaultValue>0.55</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>{DePaWSiTKurinArmorGothStuffEffectMultiplier}</StuffEffectMultiplierArmor>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.UseSetting">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinArmorGothMoveSpeedOffset</key>
+    <defaultValue>-0.20</defaultValue>
+    <apply>
+      <Operation Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/equippedStatOffsets/MoveSpeed</xpath>
+        <value>
+          <MoveSpeed>{DePaWSiTKurinArmorGothMoveSpeedOffset}</MoveSpeed>
+        </value>
+      </Operation>
+    </apply>
+  </Operation>
+  <Operation Class="XmlExtensions.OptionalPatch">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <key>DePaWSiTKurinAddMiddleLayerArmorGoth</key>
+    <defaultValue>false</defaultValue>
+    <caseTrue>
+      <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Armored_Gothic_Dress"]/apparel</xpath>
+        <value>
+          <layers>
+            <li>Middle</li>
+          </layers>
+        </value>
       </Operation>
     </caseTrue>
   </Operation>
