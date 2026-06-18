@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key></key>
     <defaultValue>false</defaultValue>
     <caseTrue>

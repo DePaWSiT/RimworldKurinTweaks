@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinPowerArmorFabricationToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -18,7 +18,7 @@
     </caseTrue>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxHelmetMass</key>
     <defaultValue>1.5</defaultValue>
     <apply>
@@ -31,7 +31,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxHelmetMeleeHit</key>
     <defaultValue>2.0</defaultValue>
     <apply>
@@ -44,7 +44,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxHelmetAimDelay</key>
     <defaultValue>-0.2</defaultValue>
     <apply>
@@ -57,7 +57,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxHelmetDodgeChance</key>
     <defaultValue>3.0</defaultValue>
     <apply>
@@ -70,7 +70,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxHelmetMoveSpeed</key>
     <defaultValue>0.1</defaultValue>
     <apply>
@@ -83,7 +83,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting" MayRequire="Ludeon.Rimworld.Odyssey">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxHelmetVacuumResistance</key>
     <defaultValue>0.65</defaultValue>
     <apply>

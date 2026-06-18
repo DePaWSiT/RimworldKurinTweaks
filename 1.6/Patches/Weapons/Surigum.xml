@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinWeaponConfigToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -92,7 +92,7 @@
   </Operation>
   <!-- Remove smithing from combat T2 and set requirements on items instead -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -117,7 +117,7 @@
     </caseTrue>
   </Operation>
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinMakeSurigumAtSmithingTableToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>

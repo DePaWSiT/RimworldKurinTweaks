@@ -2,7 +2,7 @@
 <Patch>
   <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -40,7 +40,7 @@
     </caseTrue>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinArmorGothWeight</key>
     <defaultValue>0.40</defaultValue>
     <apply>
@@ -53,7 +53,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinArmorGothSensOffset</key>
     <defaultValue>0.25</defaultValue>
     <apply>
@@ -66,7 +66,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinArmorGothStuffEffectMultiplier</key>
     <defaultValue>0.55</defaultValue>
     <apply>
@@ -79,7 +79,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinArmorGothMoveSpeedOffset</key>
     <defaultValue>-0.20</defaultValue>
     <apply>
@@ -92,7 +92,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinAddMiddleLayerArmorGoth</key>
     <defaultValue>false</defaultValue>
     <caseTrue>

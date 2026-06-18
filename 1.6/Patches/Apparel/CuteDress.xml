@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinCuteDressMoveSpeed</key>
     <defaultValue>0.40</defaultValue>
     <apply>
@@ -14,7 +14,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinCuteDressSocialImpact</key>
     <defaultValue>0</defaultValue>
     <apply>
@@ -27,7 +27,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinCuteDressTradeImprovement</key>
     <defaultValue>0</defaultValue>
     <apply>

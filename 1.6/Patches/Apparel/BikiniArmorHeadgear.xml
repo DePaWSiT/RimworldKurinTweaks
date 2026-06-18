@@ -3,7 +3,7 @@
   <!-- TODO: hybrid patch operation -->
   <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -40,7 +40,7 @@
     </caseTrue>
   </Operation>
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -77,7 +77,7 @@
     </caseTrue>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinBikiniArmorHeadgearMass</key>
     <defaultValue>0.20</defaultValue>
     <apply>
@@ -90,7 +90,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinBikiniArmorHeadgearStuffEffectMultiplier</key>
     <defaultValue>0.30</defaultValue>
     <apply>
@@ -103,7 +103,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinBikiniArmorHeadgearMeleeHit</key>
     <defaultValue>1.0</defaultValue>
     <apply>
@@ -116,7 +116,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinBikiniArmorHeadgearMeleeDodge</key>
     <defaultValue>2.0</defaultValue>
     <apply>
@@ -129,7 +129,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinBikiniArmorHeadgearMovespeed</key>
     <defaultValue>0.1</defaultValue>
     <apply>

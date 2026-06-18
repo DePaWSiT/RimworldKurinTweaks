@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchClothingHackingSpeed</key>
     <defaultValue>0.3</defaultValue>
     <apply>
@@ -14,7 +14,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchClothingResearchSpeed</key>
     <defaultValue>0.2</defaultValue>
     <apply>

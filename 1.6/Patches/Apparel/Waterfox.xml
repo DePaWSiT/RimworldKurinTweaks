@@ -2,7 +2,7 @@
 <Patch>
   <!-- Create at FabricationBench -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinPowerArmorFabricationToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -20,7 +20,7 @@
   </Operation>
   <!-- correctly set research requirement -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRemoveT0RequirementFromWaterfoxToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -36,7 +36,7 @@
     </caseTrue>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinWaterfoxArmorMass</key>
     <defaultValue>0.20</defaultValue>
     <apply>
@@ -49,7 +49,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinWaterfoxArmorWorkSpeed</key>
     <defaultValue>0.3</defaultValue>
     <apply>

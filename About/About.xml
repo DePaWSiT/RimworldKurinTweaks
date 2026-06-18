@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <packageId>DePaWSiT.KurinConfigTweaks</packageId>
+  <packageId>DePaWSiT.Kurin.ConfigTweaks</packageId>
   <name>Kurin HAR Tweaks</name>
   <author>DePaWSiT</author>
   <modIconPath IgnoreIfNoMatchingField="True">ModIcon/POWERRoundIcon</modIconPath>
-  <description>Contains (personal) tweaks for Kurin HAR</description>
-  <modVersion>1.0</modVersion>
+	<description>
+Contains tweaks for Kurin HAR.
+Tweaks can be applied and made through the mod settings menu for this mod.
+	</description>
+  <modVersion>1.01</modVersion>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>

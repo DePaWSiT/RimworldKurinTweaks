@@ -3,7 +3,7 @@
   <!-- TODO: hybrid patch pls -->
   <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
   <Operation Class="XmlExtensions.UseSettings">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <keys>
       <li>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</li>
     </keys>
@@ -24,7 +24,7 @@
     </apply>
   </Operation>
   <!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
-  <!--   <modId>DePaWSiT.KurinConfigTweaks</modId> -->
+  <!--   <modId>DePaWSiT.Kurin.ConfigTweaks</modId> -->
   <!--   <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key> -->
   <!--   <defaultValue>false</defaultValue> -->
   <!--   <caseTrue> -->
@@ -61,7 +61,7 @@
   <!--   </caseTrue> -->
   <!-- </Operation> -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -98,7 +98,7 @@
     </caseTrue>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinBikiniArmorMass</key>
     <defaultValue>0.40</defaultValue>
     <apply>

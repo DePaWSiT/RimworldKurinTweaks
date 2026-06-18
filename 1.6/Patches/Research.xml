@@ -2,7 +2,7 @@
 <Patch>
   <!-- Remove flower requirement on T3-->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRemoveConvolleraRequirementToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -19,7 +19,7 @@
   </Operation>
   <!-- Set tech level correctly -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinSetAppropriateTechLevelToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -45,7 +45,7 @@
   </Operation>
   <!-- Remove smithing from the research requirements -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -56,7 +56,7 @@
   </Operation>
   <!-- Set republic armor to require the Marine armor research  instead of fabrication -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchMarineArmorForApparelT4</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -73,7 +73,7 @@
   </Operation>
   <!-- Flower research cost-->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostFlower</key>
     <defaultValue>1200</defaultValue>
     <apply>
@@ -87,7 +87,7 @@
   </Operation>
   <!-- Basic clothing research cost -->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostApparelT1</key>
     <defaultValue>400</defaultValue>
     <apply>
@@ -101,7 +101,7 @@
   </Operation>
   <!-- Advanced clothing research cost -->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostApparelT2</key>
     <defaultValue>800</defaultValue>
     <apply>
@@ -115,7 +115,7 @@
   </Operation>
   <!-- Fine clothing research cost -->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostApparelT3</key>
     <defaultValue>1200</defaultValue>
     <apply>
@@ -129,7 +129,7 @@
   </Operation>
   <!-- Republic armor research cost -->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostApparelT4</key>
     <defaultValue>1600</defaultValue>
     <apply>
@@ -143,7 +143,7 @@
   </Operation>
   <!-- Basic combat research cost-->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostCombatT2</key>
     <defaultValue>800</defaultValue>
     <apply>
@@ -157,7 +157,7 @@
   </Operation>
   <!-- Advanced combat research cost -->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostCombatT3</key>
     <defaultValue>1200</defaultValue>
     <apply>
@@ -171,7 +171,7 @@
   </Operation>
   <!-- Spacer combat research cost -->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostCombatT4</key>
     <defaultValue>1600</defaultValue>
     <apply>
@@ -185,7 +185,7 @@
   </Operation>
   <!-- Mechtech research cost -->
   <Operation Class="XmlExtensions.UseSetting" MayRequire="Ludeon.Rimworld.Biotech">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostMechtech</key>
     <defaultValue>400</defaultValue>
     <apply>
@@ -199,7 +199,7 @@
   </Operation>
   <!-- Turret research cost-->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinResearchCostTurret</key>
     <defaultValue>400</defaultValue>
     <apply>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinPowerArmorFabricationToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -18,7 +18,7 @@
     </caseTrue>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxArmorMass</key>
     <defaultValue>1.0</defaultValue>
     <apply>
@@ -31,7 +31,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxArmorMeleeHit</key>
     <defaultValue>3.0</defaultValue>
     <apply>
@@ -44,7 +44,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxArmorShootingAccuracy</key>
     <defaultValue>3.0</defaultValue>
     <apply>
@@ -57,7 +57,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxArmorDodgeChance</key>
     <defaultValue>3.0</defaultValue>
     <apply>
@@ -70,7 +70,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxArmorMoveSpeed</key>
     <defaultValue>0.40</defaultValue>
     <apply>
@@ -83,7 +83,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting" MayRequire="Ludeon.Rimworld.Odyssey">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinRedfoxArmorVacuumResistance</key>
     <defaultValue>0.3</defaultValue>
     <apply>

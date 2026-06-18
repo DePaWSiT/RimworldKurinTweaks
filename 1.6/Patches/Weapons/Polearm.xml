@@ -2,7 +2,7 @@
 <Patch>
   <!-- Set crafting requirement -->
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinPolearmCraftingRequirement</key>
     <defaultValue>14</defaultValue>
     <apply>
@@ -16,7 +16,7 @@
   </Operation>
   <!-- More appropriate research for a non-energy weapon -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinPolearmResearchRequirementsToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>

@@ -2,7 +2,7 @@
 <Patch>
   <!-- Fix additional gunsmithing requirement for kurin weapons -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinFixGunsmithingRequirementToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
@@ -19,7 +19,7 @@
   </Operation>
   <!-- Deadly weapon tweaks -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinWeaponConfigToggle</key>
     <defaultValue>false</defaultValue>
     <caseTrue>

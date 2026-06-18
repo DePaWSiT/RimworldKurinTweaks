@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinCWHMass</key>
     <defaultValue>0.20</defaultValue>
     <apply>
@@ -14,7 +14,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinCWHStuffEffectMultiplier</key>
     <defaultValue>0.30</defaultValue>
     <apply>
@@ -27,7 +27,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinCWHMeleeHit</key>
     <defaultValue>1.0</defaultValue>
     <apply>
@@ -40,7 +40,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinCWHMeleeDodge</key>
     <defaultValue>2.0</defaultValue>
     <apply>
@@ -53,7 +53,7 @@
     </apply>
   </Operation>
   <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinCWHMovespeed</key>
     <defaultValue>0.1</defaultValue>
     <apply>
@@ -67,7 +67,7 @@
   </Operation>
   <!-- TODO: hybrid patch operation -->
   <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
     <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
     <defaultValue>false</defaultValue>
     <caseTrue>
