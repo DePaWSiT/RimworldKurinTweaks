@@ -2,15 +2,26 @@
 <Patch>
   <!-- TODO: hybrid patch pls -->
   <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
-  <Operation Class="XmlExtensions.HybridPatch">
-    <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Bikini_Armor"]</xpath>
-    <value>
-      <recipeMaker Operation="Safe">
-        <researchPrerequisites Operation="Safe">
-          <li Condition="{DePaWSiTKurinResearchAddFlakToCombatT3Toggle}" Operation="Add">FlakArmor</li>
-        </researchPrerequisites>
-      </recipeMaker>
-    </value>
+  <Operation Class="XmlExtensions.UseSettings">
+    <modId>DePaWSiT.KurinConfigTweaks</modId>
+    <keys>
+      <li>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+    </defaultValues>
+    <apply>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Bikini_Armor"]</xpath>
+        <value>
+          <recipeMaker Operation="Safe">
+            <researchPrerequisites Operation="Safe">
+              <li Condition="{DePaWSiTKurinResearchAddFlakToCombatT3Toggle}" Operation="Add">FlakArmor</li>
+            </researchPrerequisites>
+          </recipeMaker>
+        </value>
+      </Operation>
+    </apply>
   </Operation>
   <!-- <Operation Class="XmlExtensions.OptionalPatch"> -->
   <!--   <modId>DePaWSiT.KurinConfigTweaks</modId> -->
