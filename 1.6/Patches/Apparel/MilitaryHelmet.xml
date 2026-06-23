@@ -1,116 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- TODO: hybrid patch operation -->
-  <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Military_Helmet"]/recipeMaker</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Military_Helmet"]</xpath>
-          <value>
-            <recipeMaker>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
-            </recipeMaker>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Military_Helmet"]/recipeMaker/researchPrerequisites</xpath>
-          <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Military_Helmet"]/recipeMaker</xpath>
-            <value>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
-            </value>
-          </nomatch>
-          <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Military_Helmet"]/recipeMaker/researchPrerequisites</xpath>
-            <value>
-              <li>FlakArmor</li>
-            </value>
-          </match>
-        </match>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Military_Helmet"]/recipeMaker</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Military_Helmet"]</xpath>
-          <value>
-            <recipeMaker>
-              <recipeUsers Inherit="False">
-                <li>TableMachining</li>
-              </recipeUsers>
-            </recipeMaker>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Military_Helmet"]/recipeMaker/recipeUsers</xpath>
-          <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Military_Helmet"]/recipeMaker</xpath>
-            <value>
-              <recipeUsers Inherit="False">
-                <li>TableMachining</li>
-              </recipeUsers>
-            </value>
-          </nomatch>
-          <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Military_Helmet"]/recipeMaker/recipeUsers</xpath>
-            <value>
-              <li>TableMachining</li>
-            </value>
-          </match>
-        </match>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMilitaryHelmetMass</key>
-    <defaultValue>0.20</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</li>
+      <li>DePaWSiTKurinMetalApparelAtMachiningTable</li>
+      <li>DePaWSiTKurinMilitaryHelmetMass</li>
+      <li>DePaWSiTKurinMilitaryHelmetStuffEffectMultiplier</li>
+      <li>DePaWSiTKurinMilitaryHelmetAimTime</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+      <li>false</li>
+      <li>0.20</li>
+      <li>0.45</li>
+      <li>-0.1</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Military_Helmet"]/statBases</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Military_Helmet"]</xpath>
         <value>
-          <Mass>{DePaWSiTKurinMilitaryHelmetMass}</Mass>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMilitaryHelmetStuffEffectMultiplier</key>
-    <defaultValue>0.45</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Military_Helmet"]/statBases/StuffEffectMultiplierArmor</xpath>
-        <value>
-          <StuffEffectMultiplierArmor>{DePaWSiTKurinMilitaryHelmetStuffEffectMultiplier}</StuffEffectMultiplierArmor>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMilitaryHelmetAimTime</key>
-    <defaultValue>-0.1</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Military_Helmet"]/equippedStatOffsets/AimingDelayFactor</xpath>
-        <value>
-          <AimingDelayFactor>{DePaWSiTKurinMilitaryHelmetAimTime}</AimingDelayFactor>
+          <statBases Operation="Safe">
+            <Mass Operation="Add">{DePaWSiTKurinMilitaryHelmetMass}</Mass>
+            <StuffEffectMultiplierArmor Operation="Replace">{DePaWSiTKurinMilitaryHelmetStuffEffectMultiplier}</StuffEffectMultiplierArmor>
+          </statBases>
+          <equippedStatOffsets Operation="Safe">
+            <AimingDelayFactor Operation="Replace">{DePaWSiTKurinMilitaryHelmetAimTime}</AimingDelayFactor>
+          </equippedStatOffsets>
+          <recipeMaker Condition="{DePaWSiTKurinResearchAddFlakToCombatT3Toggle}" Operation="Safe">
+            <researchPrerequisites Operation="Safe">
+              <li Operation="Add">FlakArmor</li>
+            </researchPrerequisites>
+          </recipeMaker>
+          <recipeMaker Condition="{DePaWSiTKurinMetalApparelAtMachiningTable}" Operation="Safe">
+            <recipeUsers Inherit="False" Operation="Safe">
+              <li Operation="Add">TableMachining</li>
+            </recipeUsers>
+          </recipeMaker>
         </value>
       </Operation>
     </apply>

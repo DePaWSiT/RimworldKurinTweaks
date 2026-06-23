@@ -1,142 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- TODO: hybrid patch operation -->
-  <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Bikini_Armor_Headgear"]/recipeMaker</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Bikini_Armor_Headgear"]</xpath>
-          <value>
-            <recipeMaker>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
-            </recipeMaker>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Bikini_Armor_Headgear"]/recipeMaker/researchPrerequisites</xpath>
-          <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Bikini_Armor_Headgear"]/recipeMaker</xpath>
-            <value>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
-            </value>
-          </nomatch>
-          <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Bikini_Armor_Headgear"]/recipeMaker/researchPrerequisites</xpath>
-            <value>
-              <li>FlakArmor</li>
-            </value>
-          </match>
-        </match>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Bikini_Armor_Headgear"]/recipeMaker</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Bikini_Armor_Headgear"]</xpath>
-          <value>
-            <recipeMaker>
-              <recipeUsers Inherit="False">
-                <li>TableMachining</li>
-              </recipeUsers>
-            </recipeMaker>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="Kurin_Overhead_Bikini_Armor_Headgear"]/recipeMaker/recipeUsers</xpath>
-          <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Overhead_Bikini_Armor_Headgear"]/recipeMaker</xpath>
-            <value>
-              <recipeUsers Inherit="False">
-                <li>TableMachining</li>
-              </recipeUsers>
-            </value>
-          </nomatch>
-          <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName=""]/recipeMaker/recipeUsers</xpath>
-            <value>
-              <li>TableMachining</li>
-            </value>
-          </match>
-        </match>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinBikiniArmorHeadgearMass</key>
-    <defaultValue>0.20</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</li>
+      <li>DePaWSiTKurinBikiniArmorHeadgearMass</li>
+      <li>DePaWSiTKurinBikiniArmorHeadgearStuffEffectMultiplier</li>
+      <li>DePaWSiTKurinBikiniArmorHeadgearMeleeHit</li>
+      <li>DePaWSiTKurinBikiniArmorHeadgearMeleeDodge</li>
+      <li>DePaWSiTKurinBikiniArmorHeadgearMovespeed</li>
+      <li>DePaWSiTKurinMetalApparelAtMachiningTable</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+      <li>0.20</li>
+      <li>0.30</li>
+      <li>1.0</li>
+      <li>2.0</li>
+      <li>0.1</li>
+      <li>false</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Bikini_Armor_Headgear"]/statBases</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Bikini_Armor_Headgear"]</xpath>
         <value>
-          <Mass>{DePaWSiTKurinBikiniArmorHeadgearMass}</Mass>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinBikiniArmorHeadgearStuffEffectMultiplier</key>
-    <defaultValue>0.30</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Bikini_Armor_Headgear"]/statBases/StuffEffectMultiplierArmor</xpath>
-        <value>
-          <StuffEffectMultiplierArmor>{DePaWSiTKurinBikiniArmorHeadgearStuffEffectMultiplier}</StuffEffectMultiplierArmor>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinBikiniArmorHeadgearMeleeHit</key>
-    <defaultValue>1.0</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Bikini_Armor_Headgear"]/equippedStatOffsets/MeleeHitChance</xpath>
-        <value>
-          <MeleeHitChance>{DePaWSiTKurinBikiniArmorHeadgearMeleeHit}</MeleeHitChance>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinBikiniArmorHeadgearMeleeDodge</key>
-    <defaultValue>2.0</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Bikini_Armor_Headgear"]/equippedStatOffsets/MeleeDodgeChance</xpath>
-        <value>
-          <MeleeDodgeChance>{DePaWSiTKurinBikiniArmorHeadgearMeleeDodge}</MeleeDodgeChance>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinBikiniArmorHeadgearMovespeed</key>
-    <defaultValue>0.1</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Bikini_Armor_Headgear"]/equippedStatOffsets/MoveSpeed</xpath>
-        <value>
-          <MoveSpeed>{DePaWSiTKurinBikiniArmorHeadgearMovespeed}</MoveSpeed>
+          <statBases Operation="Safe">
+            <Mass Operation="Add">{DePaWSiTKurinBikiniArmorHeadgearMass}</Mass>
+            <StuffEffectMultiplierArmor Operation="Replace">{DePaWSiTKurinBikiniArmorHeadgearStuffEffectMultiplier}</StuffEffectMultiplierArmor>
+          </statBases>
+          <equippedStatOffsets Operation="Safe">
+            <MeleeHitChance Operation="Replace">{DePaWSiTKurinBikiniArmorHeadgearMeleeHit}</MeleeHitChance>
+            <MeleeDodgeChance Operation="Replace">{DePaWSiTKurinBikiniArmorHeadgearMeleeDodge}</MeleeDodgeChance>
+            <MoveSpeed Operation="Replace">{DePaWSiTKurinBikiniArmorHeadgearMovespeed}</MoveSpeed>
+          </equippedStatOffsets>
+          <recipeMaker Operation="Safe">
+            <researchPrerequisites Condition="{DePaWSiTKurinResearchAddFlakToCombatT3Toggle}" Operation="Safe">
+              <li Operation="Add">FlakArmor</li>
+            </researchPrerequisites>
+          </recipeMaker>
+          <recipeMaker Condition="{DePaWSiTKurinMetalApparelAtMachiningTable}" Operation="Safe">
+            <recipeUsers Inherit="False" Operation="Safe">
+              <li Operation="Add">TableMachining</li>
+            </recipeUsers>
+          </recipeMaker>
         </value>
       </Operation>
     </apply>

@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinGothicDressSensitivity</key>
-    <defaultValue>0.25</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinGothicDressSensitivity</li>
+      <li>DePaWSiTKurinGothicDressEntropyRecoveryRate</li>
+    </keys>
+    <defaultValues>
+      <li>0.25</li>
+      <li>0.03</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Gothic_Dress"]/equippedStatOffsets/PsychicSensitivityOffset</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Gothic_Dress"]</xpath>
         <value>
-          <PsychicSensitivityOffset>{DePaWSiTKurinGothicDressSensitivity}</PsychicSensitivityOffset>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting" MayRequire="Ludeon.Rimworld.Royalty">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinGothicDressEntropyRecoveryRate</key>
-    <defaultValue>0.03</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Gothic_Dress"]/equippedStatOffsets/PsychicEntropyRecoveryRate</xpath>
-        <value>
-          <PsychicEntropyRecoveryRate MayRequire="Ludeon.Rimworld.Royalty">{DePaWSiTKurinGothicDressEntropyRecoveryRate}</PsychicEntropyRecoveryRate>
+          <equippedStatOffsets Operation="Safe">
+            <PsychicSensitivityOffset Operation="Replace">{DePaWSiTKurinGothicDressSensitivity}</PsychicSensitivityOffset>
+            <PsychicEntropyRecoveryRate Operation="Replace">{DePaWSiTKurinGothicDressEntropyRecoveryRate}</PsychicEntropyRecoveryRate>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

@@ -1,78 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Military_Uniform"]/recipeMaker</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Military_Uniform"]</xpath>
-          <value>
-            <recipeMaker>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
-            </recipeMaker>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Military_Uniform"]/recipeMaker/researchPrerequisites</xpath>
-          <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Military_Uniform"]/recipeMaker</xpath>
-            <value>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
-            </value>
-          </nomatch>
-          <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Military_Uniform"]/recipeMaker/researchPrerequisites</xpath>
-            <value>
-              <li>FlakArmor</li>
-            </value>
-          </match>
-        </match>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMilitaryUniformMass</key>
-    <defaultValue>0.40</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</li>
+      <li>DePaWSiTKurinMilitaryUniformMass</li>
+      <li>DePaWSiTKurinMilitaryUniformStuffEffectMultiplier</li>
+      <li>DePaWSiTKurinMilitaryUniformShootingAccuracy</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+      <li>0.40</li>
+      <li>0.30</li>
+      <li>2.0</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Military_Uniform"]/statBases</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Military_Uniform"]</xpath>
         <value>
-          <Mass>{DePaWSiTKurinMilitaryUniformMass}</Mass>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMilitaryUniformStuffEffectMultiplier</key>
-    <defaultValue>0.30</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Military_Uniform"]/statBases/StuffEffectMultiplierArmor</xpath>
-        <value>
-          <StuffEffectMultiplierArmor>{DePaWSiTKurinMilitaryUniformStuffEffectMultiplier}</StuffEffectMultiplierArmor>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMilitaryUniformShootingAccuracy</key>
-    <defaultValue>2.0</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Military_Uniform"]/equippedStatOffsets/ShootingAccuracyPawn</xpath>
-        <value>
-          <ShootingAccuracyPawn>{DePaWSiTKurinMilitaryUniformShootingAccuracy}</ShootingAccuracyPawn>
+          <statBases Operation="Safe">
+            <Mass Operation="Add">{DePaWSiTKurinMilitaryUniformMass}</Mass>
+            <StuffEffectMultiplierArmor Operation="Replace">{DePaWSiTKurinMilitaryUniformStuffEffectMultiplier}</StuffEffectMultiplierArmor>
+          </statBases>
+          <equippedStatOffsets Operation="Safe">
+            <ShootingAccuracyPawn Operation="Replace">{DePaWSiTKurinMilitaryUniformShootingAccuracy}</ShootingAccuracyPawn>
+          </equippedStatOffsets>
+          <recipeMaker Condition="{DePaWSiTKurinResearchAddFlakToCombatT3Toggle}" Operation="Safe">
+            <researchPrerequisites Operation="Safe">
+              <li Operation="Add">FlakArmor</li>
+            </researchPrerequisites>
+          </recipeMaker>
         </value>
       </Operation>
     </apply>

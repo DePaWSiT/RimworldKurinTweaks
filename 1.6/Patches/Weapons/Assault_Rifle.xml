@@ -1,111 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- Fix additional gunsmithing requirement for kurin weapons -->
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinFixGunsmithingRequirementToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationRemove">
-        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/recipeMaker/researchPrerequisites/li[text()="Kurin_CombatT3"]</xpath>
-      </Operation>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/recipeMaker</xpath>
+    <keys>
+      <li>DePaWSiTKurinFixGunsmithingRequirementToggle</li>
+      <li>DePaWSiTKurinWeaponConfigToggle</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+      <li>false</li>
+    </defaultValues>
+    <apply>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]</xpath>
         <value>
-          <researchPrerequisite>Kurin_CombatT3</researchPrerequisite>
+          <recipeMaker Condition="{DePaWSiTKurinFixGunsmithingRequirementToggle}" Operation="Safe">
+            <researchPrerequisites Operation="Safe">
+              <li Compare="Both" Operation="Remove">Kurin_CombatT3</li>
+            </researchPrerequisites>
+            <researchPrerequisite Operation="Add">Kurin_CombatT3</researchPrerequisite>
+          </recipeMaker>
+          <statBases Condition="{DePaWSiTKurinWeaponConfigToggle}" Operation="Safe">
+            <WorkToMake Operation="Replace">31500</WorkToMake>
+            <AccuracyTouch Operation="Replace">0.79</AccuracyTouch>
+            <AccuracyShort Operation="Replace">0.89</AccuracyShort>
+            <AccuracyMedium Operation="Replace">0.80</AccuracyMedium>
+            <AccuracyLong Operation="Replace">0.68</AccuracyLong>
+            <RangedWeapon_Cooldown Operation="Replace">0.75</RangedWeapon_Cooldown>
+          </statBases>
+          <verbs Condition="{DePaWSiTKurinWeaponConfigToggle}" Operation="Safe">
+            <li Operation="Safe" XPathLocal="warmupTime">
+              <warmupTime Operation="Replace">1.00</warmupTime>
+              <ticksBetweenBurstShots Operation="Replace">8</ticksBetweenBurstShots>
+              <burstShotCount Operation="Replace">2</burstShotCount>
+            </li>
+          </verbs>
         </value>
       </Operation>
-    </caseTrue>
-  </Operation>
-  <!-- Deadly weapon tweaks -->
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWeaponConfigToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationSequence">
-        <success>Normal</success>
-        <operations>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/statBases/WorkToMake</xpath>
-            <value>
-              <WorkToMake>31500</WorkToMake>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/statBases/AccuracyTouch</xpath>
-            <value>
-              <AccuracyTouch>0.79</AccuracyTouch>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/statBases/AccuracyShort</xpath>
-            <value>
-              <AccuracyShort>0.89</AccuracyShort>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/statBases/AccuracyMedium</xpath>
-            <value>
-              <AccuracyMedium>0.80</AccuracyMedium>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/statBases/AccuracyLong</xpath>
-            <value>
-              <AccuracyLong>0.68</AccuracyLong>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/statBases/RangedWeapon_Cooldown</xpath>
-            <value>
-              <RangedWeapon_Cooldown>0.75</RangedWeapon_Cooldown>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/verbs/li/warmupTime</xpath>
-            <value>
-              <warmupTime>1.00</warmupTime>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/verbs/li/ticksBetweenBurstShots</xpath>
-            <value>
-              <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Assault_Rifle"]/verbs/li/burstShotCount</xpath>
-            <value>
-              <burstShotCount>2</burstShotCount>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Assault_Rifle"]/projectile/damageAmountBase</xpath>
-            <value>
-              <damageAmountBase>15</damageAmountBase>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Assault_Rifle"]/projectile/stoppingPower</xpath>
-            <value>
-              <stoppingPower>1.4</stoppingPower>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Assault_Rifle"]/projectile/armorPenetrationBase</xpath>
-            <value>
-              <armorPenetrationBase>0.21</armorPenetrationBase>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Assault_Rifle"]/projectile/speed</xpath>
-            <value>
-              <speed>290</speed>
-            </value>
-          </li>
-        </operations>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Assault_Rifle"]</xpath>
+        <value>
+          <projectile Condition="{DePaWSiTKurinWeaponConfigToggle}" Operation="Safe">
+            <damageAmountBase Operation="Replace">15</damageAmountBase>
+            <stoppingPower Operation="Replace">1.4</stoppingPower>
+            <armorPenetrationBase Operation="Replace">0.21</armorPenetrationBase>
+            <speed Operation="Replace">290</speed>
+          </projectile>
+        </value>
       </Operation>
-    </caseTrue>
+    </apply>
   </Operation>
 </Patch>

@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinHotPantsPlantSpeed</key>
-    <defaultValue>0</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinHotPantsPlantSpeed</li>
+    </keys>
+    <defaultValues>
+      <li>0</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hot_Pants"]/equippedStatOffsets</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hot_Pants"]</xpath>
-          <value>
-            <equippedStatOffsets>
-              <PlantWorkSpeed>{DePaWSiTKurinHotPantsPlantSpeed}</PlantWorkSpeed>
-            </equippedStatOffsets>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hot_Pants"]/equippedStatOffsets</xpath>
-          <value>
-            <PlantWorkSpeed>{DePaWSiTKurinHotPantsPlantSpeed}</PlantWorkSpeed>
-          </value>
-        </match>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hot_Pants"]</xpath>
+        <value>
+          <equippedStatOffsets Operation="Safe">
+            <PlantWorkSpeed Operation="Add">{DePaWSiTKurinHotPantsPlantSpeed}</PlantWorkSpeed>
+          </equippedStatOffsets>
+        </value>
       </Operation>
     </apply>
   </Operation>

@@ -1,109 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- add flak as requirement, Def doesn't have recipeMaker so you get this abomination... -->
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <!-- NOTE: hybrid patch operation -->
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/recipeMaker</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Armored_Gothic_Dress"]</xpath>
-          <value>
-            <recipeMaker>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
-            </recipeMaker>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Armored_Gothic_Dress"]/recipeMaker/researchPrerequisites</xpath>
-          <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Armored_Gothic_Dress"]/recipeMaker</xpath>
-            <value>
-              <researchPrerequisites>
-                <li>FlakArmor</li>
-              </researchPrerequisites>
-            </value>
-          </nomatch>
-          <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Armored_Gothic_Dress"]/recipeMaker/researchPrerequisites</xpath>
-            <value>
-              <li>FlakArmor</li>
-            </value>
-          </match>
-        </match>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinArmorGothWeight</key>
-    <defaultValue>0.40</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinResearchAddFlakToCombatT3Toggle</li>
+      <li>DePaWSiTKurinArmorGothWeight</li>
+      <li>DePaWSiTKurinArmorGothSensOffset</li>
+      <li>DePaWSiTKurinArmorGothStuffEffectMultiplier</li>
+      <li>DePaWSiTKurinArmorGothMoveSpeedOffset</li>
+      <li>DePaWSiTKurinAddMiddleLayerArmorGoth</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+      <li>0.40</li>
+      <li>0.25</li>
+      <li>0.55</li>
+      <li>-0.20</li>
+      <li>false</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/statBases</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Armored_Gothic_Dress"]</xpath>
         <value>
-          <Mass>{DePaWSiTKurinArmorGothWeight}</Mass>
+          <statBases Operation="Safe">
+            <Mass Operation="Add">{DePaWSiTKurinArmorGothWeight}</Mass>
+            <StuffEffectMultiplierArmor Operation="Replace">{DePaWSiTKurinArmorGothStuffEffectMultiplier}</StuffEffectMultiplierArmor>
+          </statBases>
+          <equippedStatOffsets Operation="Safe">
+            <PsychicSensitivityOffset Operation="Replace">{DePaWSiTKurinArmorGothSensOffset}</PsychicSensitivityOffset>
+            <MoveSpeed Operation="Replace">{DePaWSiTKurinArmorGothMoveSpeedOffset}</MoveSpeed>
+          </equippedStatOffsets>
+          <recipeMaker Condition="{DePaWSiTKurinResearchAddFlakToCombatT3Toggle}" Operation="Safe">
+            <researchPrerequisites Operation="Safe">
+              <li Operation="Add">FlakArmor</li>
+            </researchPrerequisites>
+          </recipeMaker>
+          <apparel Condition="{DePaWSiTKurinAddMiddleLayerArmorGoth}" Operation="Safe">
+            <layers Operation="Safe">
+              <li Operation="Add">Middle</li>
+            </layers>
+          </apparel>
         </value>
       </Operation>
     </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinArmorGothSensOffset</key>
-    <defaultValue>0.25</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/equippedStatOffsets/PsychicSensitivityOffset</xpath>
-        <value>
-          <PsychicSensitivityOffset>{DePaWSiTKurinArmorGothSensOffset}</PsychicSensitivityOffset>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinArmorGothStuffEffectMultiplier</key>
-    <defaultValue>0.55</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/statBases/StuffEffectMultiplierArmor</xpath>
-        <value>
-          <StuffEffectMultiplierArmor>{DePaWSiTKurinArmorGothStuffEffectMultiplier}</StuffEffectMultiplierArmor>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinArmorGothMoveSpeedOffset</key>
-    <defaultValue>-0.20</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Armored_Gothic_Dress"]/equippedStatOffsets/MoveSpeed</xpath>
-        <value>
-          <MoveSpeed>{DePaWSiTKurinArmorGothMoveSpeedOffset}</MoveSpeed>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinAddMiddleLayerArmorGoth</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName="Kurin_OnSkin_Armored_Gothic_Dress"]/apparel</xpath>
-        <value>
-          <layers>
-            <li>Middle</li>
-          </layers>
-        </value>
-      </Operation>
-    </caseTrue>
   </Operation>
 </Patch>

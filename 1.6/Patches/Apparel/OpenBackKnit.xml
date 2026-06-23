@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinOpenBackKnitSocialImpact</key>
-    <defaultValue>0.1</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinOpenBackKnitSocialImpact</li>
+    </keys>
+    <defaultValues>
+      <li>0.1</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Open_Back_Knit"]/equippedStatOffsets/SocialImpact</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Open_Back_Knit"]</xpath>
         <value>
-          <SocialImpact>{DePaWSiTKurinOpenBackKnitSocialImpact}</SocialImpact>
+          <equippedStatOffsets Operation="Safe">
+            <SocialImpact Operation="Replace">{DePaWSiTKurinOpenBackKnitSocialImpact}</SocialImpact>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

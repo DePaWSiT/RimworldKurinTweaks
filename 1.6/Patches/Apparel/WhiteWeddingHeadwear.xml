@@ -1,66 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWWHMass</key>
-    <defaultValue>0.20</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinWWHMass</li>
+      <li>DePaWSiTKurinWWHStuffEffectMultiplier</li>
+      <li>DePaWSiTKurinWWHMeleeHit</li>
+      <li>DePaWSiTKurinWWHMeleeDodge</li>
+      <li>DePaWSiTKurinWWHMovespeed</li>
+    </keys>
+    <defaultValues>
+      <li>0.20</li>
+      <li>0.30</li>
+      <li>1.0</li>
+      <li>2.0</li>
+      <li>0.1</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_White_Wedding_Headwear"]/statBases</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_White_Wedding_Headwear"]</xpath>
         <value>
-          <Mass>{DePaWSiTKurinWWHMass}</Mass>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWWHStuffEffectMultiplier</key>
-    <defaultValue>0.30</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_White_Wedding_Headwear"]/statBases/StuffEffectMultiplierArmor</xpath>
-        <value>
-          <StuffEffectMultiplierArmor>{DePaWSiTKurinWWHStuffEffectMultiplier}</StuffEffectMultiplierArmor>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWWHMeleeHit</key>
-    <defaultValue>1.0</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_White_Wedding_Headwear"]/equippedStatOffsets/MeleeHitChance</xpath>
-        <value>
-          <MeleeHitChance>{DePaWSiTKurinWWHMeleeHit}</MeleeHitChance>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWWHMeleeDodge</key>
-    <defaultValue>2.0</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_White_Wedding_Headwear"]/equippedStatOffsets/MeleeDodgeChance</xpath>
-        <value>
-          <MeleeDodgeChance>{DePaWSiTKurinWWHMeleeDodge}</MeleeDodgeChance>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWWHMovespeed</key>
-    <defaultValue>0.1</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_White_Wedding_Headwear"]/equippedStatOffsets/MoveSpeed</xpath>
-        <value>
-          <MoveSpeed>{DePaWSiTKurinWWHMovespeed}</MoveSpeed>
+          <statBases Operation="Safe">
+            <Mass Operation="Add">{DePaWSiTKurinWWHMass}</Mass>
+            <StuffEffectMultiplierArmor Operation="Replace">{DePaWSiTKurinWWHStuffEffectMultiplier}</StuffEffectMultiplierArmor>
+          </statBases>
+          <equippedStatOffsets Operation="Safe">
+            <MeleeHitChance Operation="Replace">{DePaWSiTKurinWWHMeleeHit}</MeleeHitChance>
+            <MeleeDodgeChance Operation="Replace">{DePaWSiTKurinWWHMeleeDodge}</MeleeDodgeChance>
+            <MoveSpeed Operation="Replace">{DePaWSiTKurinWWHMovespeed}</MoveSpeed>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

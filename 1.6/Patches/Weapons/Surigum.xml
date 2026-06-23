@@ -1,136 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWeaponConfigToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationSequence">
-        <success>Normal</success>
-        <operations>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/WorkToMake</xpath>
-            <value>
-              <WorkToMake>2400</WorkToMake>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/AccuracyTouch</xpath>
-            <value>
-              <AccuracyTouch>0.88</AccuracyTouch>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/AccuracyShort</xpath>
-            <value>
-              <AccuracyShort>0.92</AccuracyShort>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/AccuracyMedium</xpath>
-            <value>
-              <AccuracyMedium>0.34</AccuracyMedium>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/AccuracyLong</xpath>
-            <value>
-              <AccuracyLong>0.2</AccuracyLong>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/statBases/RangedWeapon_Cooldown</xpath>
-            <value>
-              <RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker/skillRequirements/Crafting</xpath>
-            <value>
-              <Crafting>3</Crafting>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/verbs/li/warmupTime</xpath>
-            <value>
-              <warmupTime>0.7</warmupTime>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/verbs/li/range</xpath>
-            <value>
-              <range>16</range>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/tools/li[label = "blade"]/power</xpath>
-            <value>
-              <power>11</power>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/tools/li[label = "blade"]/cooldownTime</xpath>
-            <value>
-              <cooldownTime>0.6</cooldownTime>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Surigum"]/projectile/speed</xpath>
-            <value>
-              <speed>80</speed>
-            </value>
-          </li>
-          <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/costList/Steel</xpath>
-            <value>
-              <Steel>35</Steel>
-            </value>
-          </li>
-        </operations>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <!-- Remove smithing from combat T2 and set requirements on items instead -->
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <!-- Add combatT2 as base requirement -->
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker</xpath>
+    <keys>
+      <li>DePaWSiTKurinWeaponConfigToggle</li>
+      <li>DePaWSiTKurinRemoveSmithingFromT2Toggle</li>
+      <li>DePaWSiTKurinMakeSurigumAtSmithingTableToggle</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+      <li>false</li>
+      <li>false</li>
+    </defaultValues>
+    <apply>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]</xpath>
         <value>
-          <researchPrerequisite>Kurin_CombatT2</researchPrerequisite>
+          <statBases Condition="{DePaWSiTKurinWeaponConfigToggle}" Operation="Safe">
+            <WorkToMake Operation="Replace">2400</WorkToMake>
+            <AccuracyTouch Operation="Replace">0.70</AccuracyTouch>
+            <AccuracyShort Operation="Replace">0.73</AccuracyShort>
+            <AccuracyMedium Operation="Replace">0.33</AccuracyMedium>
+            <AccuracyLong Operation="Replace">0.22</AccuracyLong>
+            <RangedWeapon_Cooldown Operation="Replace">0.7</RangedWeapon_Cooldown>
+          </statBases>
+          <costList Condition="{DePaWSiTKurinWeaponConfigToggle}" Operation="Safe">
+            <Steel Operation="Replace">40</Steel>
+          </costList>
+          <recipeMaker Condition="{DePaWSiTKurinWeaponConfigToggle}" Operation="Safe">
+            <skillRequirements Operation="Safe">
+              <Crafting Operation="Replace">3</Crafting>
+            </skillRequirements>
+          </recipeMaker>
+          <recipeMaker Condition="{DePaWSiTKurinRemoveSmithingFromT2Toggle}" Operation="Safe">
+            <researchPrerequisite Operation="Add">Kurin_CombatT2</researchPrerequisite>
+            <researchPrerequisites Operation="Safe">
+              <li Compare="InnerText" Operation="Remove">Kurin_CombatT2</li>
+              <li Operation="Add">Smithing</li>
+            </researchPrerequisites>
+          </recipeMaker>
+          <recipeMaker Condition="{DePaWSiTKurinMakeSurigumAtSmithingTableToggle}" Operation="Safe">
+            <recipeUsers Inherit="False" Operation="Safe">
+              <li Operation="Add">FueledSmithy</li>
+              <li Operation="Add">ElectricSmithy</li>
+            </recipeUsers>
+          </recipeMaker>
+          <verbs Condition="{DePaWSiTKurinWeaponConfigToggle}" Operation="Safe">
+            <li Operation="Safe" XPathLocal="warmupTime">
+              <warmupTime Operation="Replace">0.7</warmupTime>
+              <range Operation="Replace">16</range>
+            </li>
+          </verbs>
+          <tools Condition="{DePaWSiTKurinWeaponConfigToggle}" Operation="Safe">
+            <li Operation="Safe" XPathLocal="power">
+              <power Operation="Replace">11</power>
+              <cooldownTime Operation="Replace">0.8</cooldownTime>
+            </li>
+          </tools>
         </value>
       </Operation>
-      <!-- Remove combatT2 from additional requirements -->
-      <Operation Class="PatchOperationRemove">
-        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker/researchPrerequisites/li[text()="Kurin_CombatT2"]</xpath>
-      </Operation>
-      <!-- Add smithing as additional requirement -->
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker/researchPrerequisites</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Bullet_Surigum"]</xpath>
         <value>
-          <li>Smithing</li>
+          <projectile Operation="Safe">
+            <speed Operation="Replace">80</speed>
+          </projectile>
         </value>
       </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMakeSurigumAtSmithingTableToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <!-- Add the smithy tables as recipe users -->
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Gun_Surigum"]/recipeMaker</xpath>
-        <value>
-          <recipeUsers Inherit="False">
-            <li>FueledSmithy</li>
-            <li>ElectricSmithy</li>
-          </recipeUsers>
-        </value>
-      </Operation>
-    </caseTrue>
+    </apply>
   </Operation>
 </Patch>

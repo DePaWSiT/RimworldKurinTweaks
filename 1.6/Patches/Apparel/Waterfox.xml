@@ -1,62 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- Create at FabricationBench -->
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinPowerArmorFabricationToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationAdd">
+    <keys>
+      <li>DePaWSiTKurinPowerArmorFabricationToggle</li>
+      <li>DePaWSiTKurinRemoveT0RequirementFromWaterfoxToggle</li>
+      <li>DePaWSiTKurinWaterfoxArmorMass</li>
+      <li>DePaWSiTKurinWaterfoxArmorWorkSpeed</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+      <li>false</li>
+      <li>0.20</li>
+      <li>0.3</li>
+    </defaultValues>
+    <apply>
+      <Operation Class="XmlExtensions.HybridPatch">
         <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]</xpath>
         <value>
-          <recipeMaker>
-            <recipeUsers Inherit="False">
-              <li>FabricationBench</li>
+          <statBases Operation="Safe">
+            <Mass Operation="Add">{DePaWSiTKurinWaterfoxArmorMass}</Mass>
+          </statBases>
+          <equippedStatOffsets Operation="Safe">
+            <WorkSpeedGlobal Operation="Replace">{DePaWSiTKurinWaterfoxArmorWorkSpeed}</WorkSpeedGlobal>
+          </equippedStatOffsets>
+          <recipeMaker Condition="{DePaWSiTKurinPowerArmorFabricationToggle}" Operation="Safe">
+            <recipeUsers Inherit="False" Operation="Safe">
+              <li Operation="Add">FabricationBench</li>
             </recipeUsers>
           </recipeMaker>
-        </value>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <!-- correctly set research requirement -->
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinRemoveT0RequirementFromWaterfoxToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/recipeMaker</xpath>
-        <value>
-          <researchPrerequisite>Kurin_ApparelT4</researchPrerequisite>
-        </value>
-      </Operation>
-      <Operation Class="PatchOperationRemove">
-        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/recipeMaker/researchPrerequisites/li[text()="Kurin_ApparelT4"]</xpath>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWaterfoxArmorMass</key>
-    <defaultValue>0.20</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/statBases</xpath>
-        <value>
-          <Mass>{DePaWSiTKurinWaterfoxArmorMass}</Mass>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWaterfoxArmorWorkSpeed</key>
-    <defaultValue>0.3</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Waterfox_Armor"]/equippedStatOffsets/WorkSpeedGlobal</xpath>
-        <value>
-          <WorkSpeedGlobal>{DePaWSiTKurinWaterfoxArmorWorkSpeed}</WorkSpeedGlobal>
+          <recipeMaker Condition="{DePaWSiTKurinRemoveT0RequirementFromWaterfoxToggle}" Operation="Safe">
+            <researchPrerequisite Operation="Add">Kurin_ApparelT4</researchPrerequisite>
+            <researchPrerequisites Compare="Both" Operation="SafeRemove">Kurin_ApparelT4</researchPrerequisites>
+          </recipeMaker>
         </value>
       </Operation>
     </apply>

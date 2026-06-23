@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinOpenShoulderNegAbility</key>
-    <defaultValue>0.1</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinOpenShoulderNegAbility</li>
+    </keys>
+    <defaultValues>
+      <li>0.1</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Open_Shoulder_Knit"]/equippedStatOffsets/NegotiationAbility</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Open_Shoulder_Knit"]</xpath>
         <value>
-          <NegotiationAbility>{DePaWSiTKurinOpenShoulderNegAbility}</NegotiationAbility>
+          <equippedStatOffsets Operation="Safe">
+            <NegotiationAbility Operation="Replace">{DePaWSiTKurinOpenShoulderNegAbility}</NegotiationAbility>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

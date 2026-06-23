@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinCasualWearDodgeChance</key>
-    <defaultValue>0.0</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinCasualWearDodgeChance</li>
+    </keys>
+    <defaultValues>
+      <li>0.0</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationAdd">
+      <Operation Class="XmlExtensions.HybridPatch">
         <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Casual_Wear"]</xpath>
         <value>
-          <equippedStatOffsets>
-            <MeleeDodgeChance>{DePaWSiTKurinCasualWearDodgeChance}</MeleeDodgeChance>
+          <equippedStatOffsets Operation="Safe">
+            <MeleeDodgeChance Operation="Add">{DePaWSiTKurinCasualWearDodgeChance}</MeleeDodgeChance>
           </equippedStatOffsets>
         </value>
       </Operation>

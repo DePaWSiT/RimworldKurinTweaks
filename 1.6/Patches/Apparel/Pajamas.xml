@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinPajamasRestMultiplier</key>
-    <defaultValue>0.1</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinPajamasRestMultiplier</li>
+    </keys>
+    <defaultValues>
+      <li>0.1</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_PajamasA"]/equippedStatOffsets/RestRateMultiplier</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_PajamasA"]</xpath>
         <value>
-          <RestRateMultiplier>{DePaWSiTKurinPajamasRestMultiplier}</RestRateMultiplier>
+          <equippedStatOffsets Operation="Safe">
+            <RestRateMultiplier Operation="Replace">{DePaWSiTKurinPajamasRestMultiplier}</RestRateMultiplier>
+          </equippedStatOffsets>
         </value>
       </Operation>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_PajamasB"]/equippedStatOffsets/RestRateMultiplier</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_PajamasB"]</xpath>
         <value>
-          <RestRateMultiplier>{DePaWSiTKurinPajamasRestMultiplier}</RestRateMultiplier>
+          <equippedStatOffsets Operation="Safe">
+            <RestRateMultiplier Operation="Replace">{DePaWSiTKurinPajamasRestMultiplier}</RestRateMultiplier>
+          </equippedStatOffsets>
         </value>
       </Operation>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_PajamasC"]/equippedStatOffsets/RestRateMultiplier</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_PajamasC"]</xpath>
         <value>
-          <RestRateMultiplier>{DePaWSiTKurinPajamasRestMultiplier}</RestRateMultiplier>
+          <equippedStatOffsets Operation="Safe">
+            <RestRateMultiplier Operation="Replace">{DePaWSiTKurinPajamasRestMultiplier}</RestRateMultiplier>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

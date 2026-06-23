@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinSBDNegAbility</key>
-    <defaultValue>0.3</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinSBDNegAbility</li>
+    </keys>
+    <defaultValues>
+      <li>0.3</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Seductive_Black_Dress"]/equippedStatOffsets/NegotiationAbility</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Seductive_Black_Dress"]</xpath>
         <value>
-          <NegotiationAbility>{DePaWSiTKurinSBDNegAbility}</NegotiationAbility>
+          <equippedStatOffsets Operation="Safe">
+            <NegotiationAbility Operation="Replace">{DePaWSiTKurinSBDNegAbility}</NegotiationAbility>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

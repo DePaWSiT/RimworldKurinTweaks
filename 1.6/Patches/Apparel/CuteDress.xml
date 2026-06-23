@@ -1,40 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinCuteDressMoveSpeed</key>
-    <defaultValue>0.40</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinCuteDressMoveSpeed</li>
+      <li>DePaWSiTKurinCuteDressSocialImpact</li>
+      <li>DePaWSiTKurinCuteDressTradeImprovement</li>
+    </keys>
+    <defaultValues>
+      <li>0.40</li>
+      <li>0</li>
+      <li>0</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Cute_Dress"]/equippedStatOffsets/MoveSpeed</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Cute_Dress"]</xpath>
         <value>
-          <MoveSpeed>{DePaWSiTKurinCuteDressMoveSpeed}</MoveSpeed>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinCuteDressSocialImpact</key>
-    <defaultValue>0</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Cute_Dress"]/equippedStatOffsets</xpath>
-        <value>
-          <SocialImpact>{DePaWSiTKurinCuteDressSocialImpact}</SocialImpact>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinCuteDressTradeImprovement</key>
-    <defaultValue>0</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Cute_Dress"]/equippedStatOffsets</xpath>
-        <value>
-          <TradePriceImprovement>{DePaWSiTKurinCuteDressTradeImprovement}</TradePriceImprovement>
+          <equippedStatOffsets Operation="Safe">
+            <MoveSpeed Operation="Replace">{DePaWSiTKurinCuteDressMoveSpeed}</MoveSpeed>
+            <SocialImpact Operation="Add">{DePaWSiTKurinCuteDressSocialImpact}</SocialImpact>
+            <TradePriceImprovement Operation="Add">{DePaWSiTKurinCuteDressTradeImprovement}</TradePriceImprovement>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

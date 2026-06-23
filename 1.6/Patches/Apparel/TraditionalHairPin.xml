@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinTHPTradeImprovement</key>
-    <defaultValue>0.15</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinTHPTradeImprovement</li>
+    </keys>
+    <defaultValues>
+      <li>0.15</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Traditional_Hair_Pin"]/equippedStatOffsets/TradePriceImprovement</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Traditional_Hair_Pin"]</xpath>
         <value>
-          <TradePriceImprovement>{DePaWSiTKurinTHPTradeImprovement}</TradePriceImprovement>
+          <equippedStatOffsets Operation="Safe">
+            <TradePriceImprovement Operation="Replace">{DePaWSiTKurinTHPTradeImprovement}</TradePriceImprovement>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>
