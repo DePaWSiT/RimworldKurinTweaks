@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- Set crafting requirement -->
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinPolearmCraftingRequirement</key>
-    <defaultValue>14</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinPolearmCraftingRequirement</li>
+      <li>DePaWSiTKurinPolearmResearchRequirementsToggle</li>
+    </keys>
+    <defaultValues>
+      <li>14</li>
+      <li>false</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]/recipeMaker/skillRequirements/Crafting</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]</xpath>
         <value>
-          <Crafting>{DePaWSiTKurinPolearmCraftingRequirement}</Crafting>
+          <recipeMaker Operation="Safe">
+            <skillRequirements Operation="Safe">
+              <Crafting Operation="Replace">{DePaWSiTKurinPolearmCraftingRequirement}</Crafting>
+            </skillRequirements>
+          </recipeMaker>
+          <recipeMaker Condition="{DePaWSiTKurinPolearmResearchRequirementsToggle}" Operation="Safe">
+            <researchPrerequisite Operation="Replace">Kurin_CombatT3</researchPrerequisite>
+            <researchPrerequisites Operation="Safe">
+              <li Compare="Both" Operation="Remove">Kurin_CombatT3</li>
+              <li Operation="Add">LongBlades</li>
+            </researchPrerequisites>
+          </recipeMaker>
         </value>
       </Operation>
     </apply>
-  </Operation>
-  <!-- More appropriate research for a non-energy weapon -->
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinPolearmResearchRequirementsToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]/recipeMaker/researchPrerequisite</xpath>
-        <value>
-          <researchPrerequisite>Kurin_CombatT3</researchPrerequisite>
-        </value>
-      </Operation>
-      <Operation Class="PatchOperationRemove">
-        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]/recipeMaker/researchPrerequisites/li[text()="Kurin_CombatT3"]</xpath>
-      </Operation>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Polearm"]/recipeMaker/researchPrerequisites</xpath>
-        <value>
-          <li>LongBlades</li>
-        </value>
-      </Operation>
-    </caseTrue>
   </Operation>
 </Patch>

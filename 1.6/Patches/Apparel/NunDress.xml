@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinNunDressTendSpeed</key>
-    <defaultValue>0.2</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinNunDressTendSpeed</li>
+      <li>DePaWSiTKurinNunDressTendQuality</li>
+    </keys>
+    <defaultValues>
+      <li>0.2</li>
+      <li>0.1</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Nun_Dress"]/equippedStatOffsets/MedicalTendSpeed</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Nun_Dress"]</xpath>
         <value>
-          <SocialImpact>{DePaWSiTKurinNunDressTendSpeed}</SocialImpact>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinNunDressTendQuality</key>
-    <defaultValue>0.1</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Nun_Dress"]/equippedStatOffsets/MedicalTendQuality</xpath>
-        <value>
-          <TradePriceImprovement>{DePaWSiTKurinNunDressTendQuality}</TradePriceImprovement>
+          <equippedStatOffsets Operation="Safe">
+            <MedicalTendSpeed Operation="Replace">{DePaWSiTKurinNunDressTendSpeed}</MedicalTendSpeed>
+            <MedicalTendQuality Operation="Replace">{DePaWSiTKurinNunDressTendQuality}</MedicalTendQuality>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

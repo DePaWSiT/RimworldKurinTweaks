@@ -101,7 +101,7 @@
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.Checkbox">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
                 <label>Metal recipes at the Machining table</label>
                 <defaultValue>false</defaultValue>
@@ -176,7 +176,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Hoodie carrying capacity increase</label>
                 <key>DePaWSiTKurinHoodieCarryingCapacity</key>
                 <defaultValue>0</defaultValue>
@@ -196,7 +196,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Hot pants plant speed modifier</label>
                 <key>DePaWSiTKurinHotPantsPlantSpeed</key>
                 <defaultValue>0</defaultValue>
@@ -216,7 +216,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>One Piece trade price improvement</label>
                 <key>DePaWSiTKurinOnePieceDressTradeImprovement</key>
                 <defaultValue>0.1</defaultValue>
@@ -236,14 +236,14 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Open back knit social impact</label>
                 <key>DePaWSiTKurinOpenBackKnitSocialImpact</key>
                 <defaultValue>0.1</defaultValue>
                 <decimals>2</decimals>
               </li>
               <li Class="XmlExtensions.Setting.Text">
-                <text>The social impact improvement for the open back knit.\nDefault kurin already has a factor of 1.2 applied (default 0.1)</text>
+                <text>The social impact improvement for the open back knit (default 0.1).\nDefault kurin already has a factor of 1.2 applied.</text>
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.GapLine">
@@ -256,14 +256,14 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Shoulder knit negotiation ability</label>
                 <key>DePaWSiTKurinOpenShoulderNegAbility</key>
                 <defaultValue>0.1</defaultValue>
                 <decimals>2</decimals>
               </li>
               <li Class="XmlExtensions.Setting.Text">
-                <text>The Negotation ability improvement for the open shoulder knit.\nDefault kurin already has a factor of 1.3 applied (default 0.1)</text>
+                <text>The Negotation ability improvement for the open shoulder knit (default 0.1).\nDefault kurin already has a factor of 1.3 applied.</text>
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.GapLine">
@@ -276,7 +276,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Pajamas rest rate</label>
                 <key>DePaWSiTKurinPajamasRestMultiplier</key>
                 <defaultValue>0.1</defaultValue>
@@ -296,13 +296,13 @@
                 <font>Medium</font>
               </li>
               <li Class="XmlExtensions.Setting.Text">
-								<padAbove>2</padAbove>
+                <padAbove>2</padAbove>
                 <text>Black Dress</text>
                 <anchor>Middle</anchor>
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Black Dress social impact</label>
                 <key>DePaWSiTKurinBlackDressSocialImpact</key>
                 <defaultValue>0.25</defaultValue>
@@ -332,7 +332,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Black Wedding Dress social impact</label>
                 <key>DePaWSiTKurinBWDSocialImpact</key>
                 <defaultValue>0.25</defaultValue>
@@ -362,7 +362,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Chinese Wedding Dress social impact</label>
                 <key>DePaWSiTKurinCWDSocialImpact</key>
                 <defaultValue>0.25</defaultValue>
@@ -393,7 +393,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Cute Dress move speed</label>
                 <key>DePaWSiTKurinCuteDressMoveSpeed</key>
                 <defaultValue>0.4</defaultValue>
@@ -435,7 +435,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Gothic Dress psychic sensitivity</label>
                 <key>DePaWSiTKurinGothicDressSensitivity</key>
                 <defaultValue>0.25</defaultValue>
@@ -466,7 +466,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Gothic hair pin psychic sensitivity</label>
                 <key>DePaWSiTKurinGothicPinSensitivity</key>
                 <defaultValue>0.15</defaultValue>
@@ -486,7 +486,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Jumpsuit workspeed</label>
                 <key>DePaWSiTKurinJumpsuitWorkSpeed</key>
                 <defaultValue>0.1</defaultValue>
@@ -506,7 +506,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Luxery Dress social impact</label>
                 <key>DePaWSiTKurinLuxuryDressSocialImpact</key>
                 <defaultValue>0.4</defaultValue>
@@ -537,7 +537,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Nun Dress tend speed</label>
                 <key>DePaWSiTKurinNunDressTendSpeed</key>
                 <defaultValue>0.2</defaultValue>
@@ -568,7 +568,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Research Clothing hacking speed</label>
                 <key>DePaWSiTKurinResearchClothingHackingSpeed</key>
                 <defaultValue>0.3</defaultValue>
@@ -599,7 +599,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Seductive Black Dress negotiation ability</label>
                 <key>DePaWSiTKurinSBDNegAbility</key>
                 <defaultValue>0.3</defaultValue>
@@ -619,7 +619,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Seductive White Dress negotiation ability</label>
                 <key>DePaWSiTKurinSWDNegAbility</key>
                 <defaultValue>0.3</defaultValue>
@@ -639,7 +639,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Traditional Fancy Dress social impact</label>
                 <key>DePaWSiTKurinTFDSocialImpact</key>
                 <defaultValue>0.15</defaultValue>
@@ -650,7 +650,7 @@
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Traditional Fancy Dress negotiation ability</label>
                 <key>DePaWSiTKurinTFDNegAbility</key>
                 <defaultValue>0.15</defaultValue>
@@ -661,7 +661,7 @@
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Traditional Fancy Dress trade improvement</label>
                 <key>DePaWSiTKurinTFDTradeImprovement</key>
                 <defaultValue>0.15</defaultValue>
@@ -681,7 +681,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Traditional Hair Pin trade improvement</label>
                 <key>DePaWSiTKurinTHPTradeImprovement</key>
                 <defaultValue>0.15</defaultValue>
@@ -701,7 +701,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Traditional Luxery Dress social impact</label>
                 <key>DePaWSiTKurinTLDSocialImpact</key>
                 <defaultValue>0.3</defaultValue>
@@ -721,7 +721,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Traditional Simple Dress trade improvement</label>
                 <key>DePaWSiTKurinTSDTradeImprovement</key>
                 <defaultValue>0.3</defaultValue>
@@ -741,7 +741,7 @@
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>White Wedding Dress social impact</label>
                 <key>DePaWSiTKurinWWDSocialImpact</key>
                 <defaultValue>0.4</defaultValue>
@@ -752,7 +752,7 @@
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>White Wedding Dress trade improvement</label>
                 <key>DePaWSiTKurinWWDTradeImprovement</key>
                 <defaultValue>0.25</defaultValue>
@@ -773,13 +773,13 @@
               </li>
               <!-- Body armor -->
               <li Class="XmlExtensions.Setting.Text">
-								<padAbove>2</padAbove>
+                <padAbove>2</padAbove>
                 <text>Body armor</text>
                 <anchor>Middle</anchor>
                 <font>Small</font>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Stuff multiplier</label>
                 <key>DePaWSiTKurinBodyArmorStuffRating</key>
                 <defaultValue>1.00</defaultValue>
@@ -810,7 +810,7 @@
               </li>
               <!-- Armored gothic dress -->
               <li Class="XmlExtensions.Setting.Text">
-								<padAbove>2</padAbove>
+                <padAbove>2</padAbove>
                 <text>Armored gothic dress</text>
                 <anchor>Middle</anchor>
                 <font>Small</font>
@@ -826,7 +826,7 @@
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Mass of armored dress</label>
                 <key>DePaWSiTKurinArmorGothWeight</key>
                 <decimals>2</decimals>
@@ -837,7 +837,7 @@
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.Numeric">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <label>Stuff effect multiplier armor gothic dress</label>
                 <key>DePaWSiTKurinArmorGothStuffEffectMultiplier</key>
                 <decimals>2</decimals>
@@ -878,6 +878,16 @@
                 <anchor>Middle</anchor>
                 <font>Small</font>
               </li>
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <padAbove>4</padAbove>
+                <label>Add middle layer bikini armor</label>
+                <key>DePaWSiTKurinBikiniArmorMiddleLayerToggle</key>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Adds the middle layer to the bikini armor which disallows the wearing of body armor with it</text>
+                <color>(163,177,188)</color>
+              </li>
               <li Class="XmlExtensions.Setting.Numeric">
                 <padAbove>4</padAbove>
                 <label>Mass Bikini armor</label>
@@ -887,6 +897,17 @@
               </li>
               <li Class="XmlExtensions.Setting.Text">
                 <text>Set the mass of the Bikini Armor (default 0.40)</text>
+                <color>(163,177,188)</color>
+              </li>
+              <li Class="XmlExtensions.Setting.Numeric">
+                <padAbove>4</padAbove>
+                <label>Material effect Bikini armor</label>
+                <key>DePaWSiTKurinBikiniArmorStuffEffectMultiplier</key>
+                <defaultValue>0.35</defaultValue>
+                <decimals>2</decimals>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Set the effectiveness of the material used for the Bikini Armor (default 0.35)</text>
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.GapLine">
@@ -1239,7 +1260,7 @@
                 <font>Medium</font>
               </li>
               <li Class="XmlExtensions.Setting.Checkbox">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <key>DePaWSiTKurinPowerArmorFabricationToggle</key>
                 <label>Republic armor at fabrication bench</label>
                 <defaultValue>false</defaultValue>
@@ -1305,7 +1326,7 @@
                 <padAbove>4</padAbove>
                 <label>Move speed offset</label>
                 <key>DePaWSiTKurinRedfoxArmorMoveSpeed</key>
-                <defaultValue>9.0</defaultValue>
+                <defaultValue>0.40</defaultValue>
                 <decimals>2</decimals>
               </li>
               <li Class="XmlExtensions.Setting.Text">
@@ -1447,7 +1468,7 @@
             <settings>
               <!-- remove flower requirement from T3 research toggle -->
               <li Class="XmlExtensions.Setting.Checkbox">
-								<padAbove>4</padAbove>
+                <padAbove>4</padAbove>
                 <key>DePaWSiTKurinRemoveConvolleraRequirementToggle</key>
                 <label>Remove flower requirement for T3 research</label>
                 <defaultValue>false</defaultValue>
@@ -1612,6 +1633,17 @@
               </li>
               <li Class="XmlExtensions.Setting.Text">
                 <text>Remove the smithing requirement for Basic combat and add a smithing requirement for the surigum and a flak requirement for the body armor</text>
+                <color>(163,177,188)</color>
+              </li>
+              <!-- Remove smithing for basic combat -->
+              <li Class="XmlExtensions.Setting.Checkbox">
+                <padAbove>4</padAbove>
+                <key>DePaWSiTKurinBodyArmorToAdvancedCombatToggle</key>
+                <label>Body Armor to Advanced Combat</label>
+                <defaultValue>false</defaultValue>
+              </li>
+              <li Class="XmlExtensions.Setting.Text">
+                <text>Changes Body armor to be in Advanced Combat instead of Basic Combat.\nAs an additional effect, will move the techlevel for Basic Combat to medieval as it only has a sword and surigum</text>
                 <color>(163,177,188)</color>
               </li>
               <li Class="XmlExtensions.Setting.GapLine">

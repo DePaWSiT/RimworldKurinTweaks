@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWWDSocialImpact</key>
-    <defaultValue>0.4</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinWWDSocialImpact</li>
+      <li>DePaWSiTKurinWWDTradeImprovement</li>
+    </keys>
+    <defaultValues>
+      <li>0.4</li>
+      <li>0.25</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Wedding_Dress_White"]/equippedStatOffsets/SocialImpact</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Wedding_Dress_White"]</xpath>
         <value>
-          <SocialImpact>{DePaWSiTKurinWWDSocialImpact}</SocialImpact>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinWWDTradeImprovement</key>
-    <defaultValue>0.25</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Wedding_Dress_White"]/equippedStatOffsets/TradePriceImprovement</xpath>
-        <value>
-          <TradePriceImprovement>{DePaWSiTKurinWWDTradeImprovement}</TradePriceImprovement>
+          <equippedStatOffsets Operation="Safe">
+            <SocialImpact Operation="Replace">{DePaWSiTKurinWWDSocialImpact}</SocialImpact>
+            <TradePriceImprovement Operation="Replace">{DePaWSiTKurinWWDTradeImprovement}</TradePriceImprovement>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

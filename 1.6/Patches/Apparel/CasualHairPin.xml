@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinCasualPinMetalToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Casual_Hair_Pin"]/stuffCategories</xpath>
-        <value>
-          <stuffCategories>
-            <li>Metallic</li>
-          </stuffCategories>
-        </value>
-      </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinCasualPinBreakThreshold</key>
-    <defaultValue>-0.06</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinCasualPinBreakThreshold</li>
+      <li>DePaWSiTKurinCasualPinMetalToggle</li>
+    </keys>
+    <defaultValues>
+      <li>-0.06</li>
+      <li>false</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Casual_Hair_Pin"]/equippedStatOffsets/MentalBreakThreshold</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Casual_Hair_Pin"]</xpath>
         <value>
-          <MentalBreakThreshold>{DePaWSiTKurinCasualPinBreakThreshold}</MentalBreakThreshold>
+          <equippedStatOffsets Operation="Safe">
+            <MentalBreakThreshold Operation="Replace">{DePaWSiTKurinCasualPinBreakThreshold}</MentalBreakThreshold>
+          </equippedStatOffsets>
+          <stuffCategories Condition="{DePaWSiTKurinCasualPinMetalToggle}" Inherit="False" Operation="Safe">
+            <li Operation="Add">Metallic</li>
+          </stuffCategories>
         </value>
       </Operation>
     </apply>

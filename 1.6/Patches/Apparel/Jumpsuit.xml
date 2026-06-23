@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinJumpsuitWorkSpeed</key>
-    <defaultValue>0.1</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinJumpsuitWorkSpeed</li>
+    </keys>
+    <defaultValues>
+      <li>0.1</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Work_Jumpsuit"]/equippedStatOffsets/WorkSpeedGlobal</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Work_Jumpsuit"]</xpath>
         <value>
-          <WorkSpeedGlobal>{DePaWSiTKurinJumpsuitWorkSpeed}</WorkSpeedGlobal>
+          <equippedStatOffsets Operation="Safe">
+            <WorkSpeedGlobal Operation="Replace">{DePaWSiTKurinJumpsuitWorkSpeed}</WorkSpeedGlobal>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

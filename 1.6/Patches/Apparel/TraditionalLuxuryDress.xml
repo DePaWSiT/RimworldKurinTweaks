@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinTLDSocialImpact</key>
-    <defaultValue>0.3</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinTLDSocialImpact</li>
+    </keys>
+    <defaultValues>
+      <li>0.3</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Traditional_Luxury_Dress"]/equippedStatOffsets/SocialImpact</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Traditional_Luxury_Dress"]</xpath>
         <value>
-          <SocialImpact>{DePaWSiTKurinTLDSocialImpact}</SocialImpact>
+          <equippedStatOffsets Operation="Safe">
+            <SocialImpact Operation="Replace">{DePaWSiTKurinTLDSocialImpact}</SocialImpact>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

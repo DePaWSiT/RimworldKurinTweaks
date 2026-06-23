@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinCeremonialSwordCraftingRequirement</key>
-    <defaultValue>10</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinCeremonialSwordCraftingRequirement</li>
+    </keys>
+    <defaultValues>
+      <li>10</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Sword"]/recipeMaker/skillRequirements/Crafting</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_MeleeWeapon_Ceremonial_Sword"]</xpath>
         <value>
-          <Crafting>{DePaWSiTKurinCeremonialSwordCraftingRequirement}</Crafting>
+          <recipeMaker Operation="Safe">
+            <skillRequirements Operation="Safe">
+              <Crafting Operation="Replace">{DePaWSiTKurinCeremonialSwordCraftingRequirement}</Crafting>
+            </skillRequirements>
+          </recipeMaker>
         </value>
       </Operation>
     </apply>

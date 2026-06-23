@@ -1,72 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- TODO: hybrid patch operation -->
-  <!-- side effect of removing smithing from CombatT2 so will add flak as requirement for the body armor -->
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinRemoveSmithingFromT2Toggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationAdd">
+    <keys>
+      <li>DePaWSiTKurinRemoveSmithingFromT2Toggle</li>
+      <li>DePaWSiTKurinBodyArmorStuffRating</li>
+      <li>DePaWSiTKurinMetalApparelAtMachiningTable</li>
+      <li>DePaWSiTKurinBodyArmorToAdvancedCombatToggle</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+      <li>1.00</li>
+      <li>false</li>
+      <li>false</li>
+    </defaultValues>
+    <apply>
+      <Operation Class="XmlExtensions.HybridPatch">
         <xpath>Defs/ThingDef[defName = "Kurin_Middle_Body_Armor"]</xpath>
         <value>
-          <recipeMaker>
-            <researchPrerequisites>
-              <li>FlakArmor</li>
+          <statBases Operation="Safe">
+            <StuffEffectMultiplierArmor Operation="Replace">{DePaWSiTKurinBodyArmorStuffRating}</StuffEffectMultiplierArmor>
+          </statBases>
+          <recipeMaker Condition="{DePaWSiTKurinRemoveSmithingFromT2Toggle}" Operation="Safe">
+            <researchPrerequisites Operation="Safe">
+              <li Operation="Add">FlakArmor</li>
             </researchPrerequisites>
+          </recipeMaker>
+          <recipeMaker Condition="{DePaWSiTKurinMetalApparelAtMachiningTable}" Operation="Safe">
+            <recipeUsers Inherit="False" Operation="Safe">
+              <li Operation="Add">TableMachining</li>
+            </recipeUsers>
+          </recipeMaker>
+          <recipeMaker Condition="{DePaWSiTKurinBodyArmorToAdvancedCombatToggle}" Operation="Safe">
+            <researchPrerequisite Operation="Add">Kurin_CombatT3</researchPrerequisite>
           </recipeMaker>
         </value>
       </Operation>
-    </caseTrue>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinBodyArmorStuffRating</key>
-    <defaultValue>1.00</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Middle_Body_Armor"]/statBases/StuffEffectMultiplierArmor</xpath>
-        <value>
-          <StuffEffectMultiplierArmor>{DePaWSiTKurinBodyArmorStuffRating}</StuffEffectMultiplierArmor>
-        </value>
-      </Operation>
     </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.OptionalPatch">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinMetalApparelAtMachiningTable</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_Middle_Body_Armor"]/recipeMaker</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Kurin_Middle_Body_Armor"]</xpath>
-          <value>
-            <recipeMaker>
-              <recipeUsers Inherit="False">
-                <li>TableMachining</li>
-              </recipeUsers>
-            </recipeMaker>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationConditional">
-          <xpath>Defs/ThingDef[defName="Kurin_Middle_Body_Armor"]/recipeMaker/recipeUsers</xpath>
-          <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Middle_Body_Armor"]/recipeMaker</xpath>
-            <value>
-              <recipeUsers Inherit="False">
-                <li>TableMachining</li>
-              </recipeUsers>
-            </value>
-          </nomatch>
-          <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="Kurin_Middle_Body_Armor"]/recipeMaker/recipeUsers</xpath>
-            <value>
-              <li>TableMachining</li>
-            </value>
-          </match>
-        </match>
-      </Operation>
-    </caseTrue>
   </Operation>
 </Patch>

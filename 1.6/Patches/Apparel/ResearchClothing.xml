@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinResearchClothingHackingSpeed</key>
-    <defaultValue>0.3</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinResearchClothingHackingSpeed</li>
+      <li>DePaWSiTKurinResearchClothingResearchSpeed</li>
+    </keys>
+    <defaultValues>
+      <li>0.3</li>
+      <li>0.2</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Research_Clothing"]/equippedStatOffsets/HackingSpeed</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Research_Clothing"]</xpath>
         <value>
-          <HackingSpeed>{DePaWSiTKurinResearchClothingHackingSpeed}</HackingSpeed>
-        </value>
-      </Operation>
-    </apply>
-  </Operation>
-  <Operation Class="XmlExtensions.UseSetting">
-    <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinResearchClothingResearchSpeed</key>
-    <defaultValue>0.2</defaultValue>
-    <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Research_Clothing"]/equippedStatOffsets/ResearchSpeed</xpath>
-        <value>
-          <ResearchSpeed>{DePaWSiTKurinResearchClothingResearchSpeed}</ResearchSpeed>
+          <equippedStatOffsets Operation="Safe">
+            <HackingSpeed Operation="Replace">{DePaWSiTKurinResearchClothingHackingSpeed}</HackingSpeed>
+            <ResearchSpeed Operation="Replace">{DePaWSiTKurinResearchClothingResearchSpeed}</ResearchSpeed>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

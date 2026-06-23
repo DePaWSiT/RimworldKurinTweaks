@@ -1,195 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.OptionalPatch">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinTailorBenchToggle</key>
-    <defaultValue>false</defaultValue>
-    <caseTrue>
-      <!-- TODO: This could be hybridPatch operations -->
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName="Kurin_Electric_Tailoring_Bench"]/researchPrerequisites</xpath>
-        <value>
-          <li>Electricity</li>
-        </value>
-      </Operation>
-      <Operation Class="PatchOperationAdd">
+    <keys>
+      <li>DePaWSiTKurinTailorBenchToggle</li>
+    </keys>
+    <defaultValues>
+      <li>false</li>
+    </defaultValues>
+    <apply>
+
+      <!-- Changes to existing benches -->
+      <Operation Class="XmlExtensions.HybridPatch">
         <xpath>Defs/ThingDef[defName="Kurin_Electric_Tailoring_Bench"]</xpath>
         <value>
-          <costStuffCount>75</costStuffCount>
-          <stuffCategories>
-            <li>Metallic</li>
-            <li>Woody</li>
+          <researchPrerequisites Condition="{DePaWSiTKurinTailorBenchToggle}" Operation="Safe">
+            <li Operation="Add">Electricity</li>
+          </researchPrerequisites>
+          <costStuffCount Condition="{DePaWSiTKurinTailorBenchToggle}" Operation="Add">75</costStuffCount>
+          <stuffCategories Condition="{DePaWSiTKurinTailorBenchToggle}" Operation="Safe">
+            <li Operation="Add">Metallic</li>
+            <li Operation="Add">Woody</li>
           </stuffCategories>
+          <costList Condition="{DePaWSiTKurinTailorBenchToggle}" Operation="Safe">
+            <WoodLog Operation="SafeRemove"></WoodLog>
+          </costList>
         </value>
       </Operation>
-      <Operation Class="PatchOperationRemove">
-        <xpath>Defs/ThingDef[defName="Kurin_Electric_Tailoring_Bench"]/costList/WoodLog</xpath>
-      </Operation>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName="Kurin_Tailoring_Bench"]/researchPrerequisites</xpath>
-        <value>
-          <li>Electricity</li>
-        </value>
-      </Operation>
-      <Operation Class="PatchOperationAdd">
+      <Operation Class="XmlExtensions.HybridPatch">
         <xpath>Defs/ThingDef[defName="Kurin_Tailoring_Bench"]</xpath>
         <value>
-          <costStuffCount>75</costStuffCount>
-          <stuffCategories>
-            <li>Metallic</li>
-            <li>Woody</li>
+          <researchPrerequisites Condition="{DePaWSiTKurinTailorBenchToggle}" Operation="Safe">
+            <li Operation="Add">Electricity</li>
+          </researchPrerequisites>
+          <costStuffCount Condition="{DePaWSiTKurinTailorBenchToggle}" Operation="Add">75</costStuffCount>
+          <stuffCategories Condition="{DePaWSiTKurinTailorBenchToggle}" Operation="Safe">
+            <li Operation="Add">Metallic</li>
+            <li Operation="Add">Woody</li>
           </stuffCategories>
-        </value>
-      </Operation>
-      <Operation Class="PatchOperationRemove">
-        <xpath>Defs/ThingDef[defName="Kurin_Tailoring_Bench"]/costList/WoodLog</xpath>
-      </Operation>
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs</xpath>
-        <value>
-          <ThingDef ParentName="BenchBase">
-            <defName>Kurin_Hand_Tailoring_Bench_Large</defName>
-            <label>Kurin hand tailor bench (1x3)</label>
-            <description>A workbench with a sewing machine for rapid tailoring of clothes.</description>
-            <thingClass>Building_WorkTable</thingClass>
-            <designatorDropdown>KurinTailoringBenchDropdownDef</designatorDropdown>
-            <graphicData>
-              <texPath>Textures/Building/TailorLarge/Texture</texPath>
-              <graphicClass>Graphic_Multi</graphicClass>
-              <drawSize>(3, 1.5)</drawSize>
-              <shaderType>CutoutComplex</shaderType>
-              <color>(133,97,67)</color>
-              <damageData>
-                <cornerTL>Damage/Corner</cornerTL>
-                <cornerTR>Damage/Corner</cornerTR>
-                <cornerBL>Damage/Corner</cornerBL>
-                <cornerBR>Damage/Corner</cornerBR>
-              </damageData>
-            </graphicData>
-            <castEdgeShadows>true</castEdgeShadows>
-            <staticSunShadowHeight>0.20</staticSunShadowHeight>
-            <costStuffCount>75</costStuffCount>
-            <stuffCategories>
-              <li>Metallic</li>
-              <li>Woody</li>
-            </stuffCategories>
-            <altitudeLayer>Building</altitudeLayer>
-            <fillPercent>0.5</fillPercent>
-            <useHitPoints>True</useHitPoints>
-            <statBases>
-              <WorkToBuild>2000</WorkToBuild>
-              <MaxHitPoints>180</MaxHitPoints>
-              <Flammability>1.0</Flammability>
-              <WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
-            </statBases>
-            <size>(3,1)</size>
-            <designationCategory>Production</designationCategory>
-            <uiOrder>2410</uiOrder>
-            <passability>PassThroughOnly</passability>
-            <pathCost>50</pathCost>
-            <hasInteractionCell>True</hasInteractionCell>
-            <interactionCellOffset>(0,0,-1)</interactionCellOffset>
-            <surfaceType>Item</surfaceType>
-            <inspectorTabs>
-              <li>ITab_Bills</li>
-            </inspectorTabs>
-            <building>
-              <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
-              <paintable>true</paintable>
-            </building>
-            <comps>
-              <li Class="CompProperties_AffectedByFacilities">
-                <linkableFacilities>
-                  <li>ToolCabinet</li>
-                  <li MayRequire="VanillaExpanded.VFEProduction">VFE_TailorCabinet</li>
-                </linkableFacilities>
-              </li>
-            </comps>
-            <placeWorkers>
-              <li>PlaceWorker_ShowFacilitiesConnections</li>
-              <li>PlaceWorker_PreventInteractionSpotOverlap</li>
-            </placeWorkers>
-            <researchPrerequisites>
-              <li>Kurin_ApparelT1</li>
-            </researchPrerequisites>
-          </ThingDef>
-
-          <ThingDef ParentName="BenchBase">
-            <defName>Kurin_Hand_Tailoring_Bench_Small</defName>
-            <label>Kurin hand tailor bench (1x2)</label>
-            <description>A workbench with a sewing machine for rapid tailoring of clothes.</description>
-            <thingClass>Building_WorkTable</thingClass>
-            <designatorDropdown>KurinTailoringBenchDropdownDef</designatorDropdown>
-            <graphicData>
-              <texPath>Textures/Building/TailorSmall/Texture</texPath>
-              <graphicClass>Graphic_Multi</graphicClass>
-              <drawSize>(3, 1.5)</drawSize>
-              <shaderType>CutoutComplex</shaderType>
-              <color>(133,97,67)</color>
-              <damageData>
-                <cornerTL>Damage/Corner</cornerTL>
-                <cornerTR>Damage/Corner</cornerTR>
-                <cornerBL>Damage/Corner</cornerBL>
-                <cornerBR>Damage/Corner</cornerBR>
-              </damageData>
-            </graphicData>
-            <castEdgeShadows>true</castEdgeShadows>
-            <staticSunShadowHeight>0.20</staticSunShadowHeight>
-            <costStuffCount>75</costStuffCount>
-            <stuffCategories>
-              <li>Metallic</li>
-              <li>Woody</li>
-            </stuffCategories>
-            <altitudeLayer>Building</altitudeLayer>
-            <fillPercent>0.5</fillPercent>
-            <useHitPoints>True</useHitPoints>
-            <statBases>
-              <WorkToBuild>2000</WorkToBuild>
-              <MaxHitPoints>180</MaxHitPoints>
-              <Flammability>1.0</Flammability>
-              <WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
-            </statBases>
-            <size>(2,1)</size>
-            <designationCategory>Production</designationCategory>
-            <uiOrder>2405</uiOrder>
-            <passability>PassThroughOnly</passability>
-            <pathCost>50</pathCost>
-            <hasInteractionCell>True</hasInteractionCell>
-            <interactionCellOffset>(0,0,-1)</interactionCellOffset>
-            <surfaceType>Item</surfaceType>
-            <inspectorTabs>
-              <li>ITab_Bills</li>
-            </inspectorTabs>
-            <building>
-              <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
-              <paintable>true</paintable>
-            </building>
-            <comps>
-              <li Class="CompProperties_AffectedByFacilities">
-                <linkableFacilities>
-                  <li>ToolCabinet</li>
-                  <li MayRequire="VanillaExpanded.VFEProduction">VFE_TailorCabinet</li>
-                </linkableFacilities>
-              </li>
-            </comps>
-            <placeWorkers>
-              <li>PlaceWorker_ShowFacilitiesConnections</li>
-              <li>PlaceWorker_PreventInteractionSpotOverlap</li>
-            </placeWorkers>
-            <researchPrerequisites>
-              <li>Kurin_ApparelT1</li>
-            </researchPrerequisites>
-          </ThingDef>
+          <costList Condition="{DePaWSiTKurinTailorBenchToggle}" Operation="Safe">
+            <WoodLog Operation="SafeRemove"></WoodLog>
+          </costList>
         </value>
       </Operation>
 
-      <Operation Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[@Name="Kurin_ApparelBase"]/recipeMaker/recipeUsers</xpath>
-        <value>
-          <li>Kurin_Hand_Tailoring_Bench_Small</li>
-          <li>Kurin_Hand_Tailoring_Bench_Large</li>
-        </value>
+      <!-- Add new benches -->
+      <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
+        <key>DePaWSiTKurinTailorBenchToggle</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="BenchBase">
+                <defName>Kurin_Hand_Tailoring_Bench_Large</defName>
+                <label>Kurin hand tailor bench (1x3)</label>
+                <description>A workbench with a sewing machine for rapid tailoring of clothes.</description>
+                <thingClass>Building_WorkTable</thingClass>
+                <designatorDropdown>KurinTailoringBenchDropdownDef</designatorDropdown>
+                <graphicData>
+                  <texPath>Textures/Building/TailorLarge/Texture</texPath>
+                  <graphicClass>Graphic_Multi</graphicClass>
+                  <drawSize>(3, 1.5)</drawSize>
+                  <shaderType>CutoutComplex</shaderType>
+                  <color>(133,97,67)</color>
+                  <damageData>
+                    <cornerTL>Damage/Corner</cornerTL>
+                    <cornerTR>Damage/Corner</cornerTR>
+                    <cornerBL>Damage/Corner</cornerBL>
+                    <cornerBR>Damage/Corner</cornerBR>
+                  </damageData>
+                </graphicData>
+                <castEdgeShadows>true</castEdgeShadows>
+                <staticSunShadowHeight>0.20</staticSunShadowHeight>
+                <costStuffCount>75</costStuffCount>
+                <stuffCategories>
+                  <li>Metallic</li>
+                  <li>Woody</li>
+                </stuffCategories>
+                <altitudeLayer>Building</altitudeLayer>
+                <fillPercent>0.5</fillPercent>
+                <useHitPoints>True</useHitPoints>
+                <statBases>
+                  <WorkToBuild>2000</WorkToBuild>
+                  <MaxHitPoints>180</MaxHitPoints>
+                  <Flammability>1.0</Flammability>
+                  <WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
+                </statBases>
+                <size>(3,1)</size>
+                <designationCategory>Production</designationCategory>
+                <uiOrder>2410</uiOrder>
+                <passability>PassThroughOnly</passability>
+                <pathCost>50</pathCost>
+                <hasInteractionCell>True</hasInteractionCell>
+                <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+                <surfaceType>Item</surfaceType>
+                <inspectorTabs>
+                  <li>ITab_Bills</li>
+                </inspectorTabs>
+                <building>
+                  <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+                  <paintable>true</paintable>
+                </building>
+                <comps>
+                  <li Class="CompProperties_AffectedByFacilities">
+                    <linkableFacilities>
+                      <li>ToolCabinet</li>
+                      <li MayRequire="VanillaExpanded.VFEProduction">VFE_TailorCabinet</li>
+                    </linkableFacilities>
+                  </li>
+                </comps>
+                <placeWorkers>
+                  <li>PlaceWorker_ShowFacilitiesConnections</li>
+                  <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+                </placeWorkers>
+                <researchPrerequisites>
+                  <li>Kurin_ApparelT1</li>
+                </researchPrerequisites>
+              </ThingDef>
+
+              <ThingDef ParentName="BenchBase">
+                <defName>Kurin_Hand_Tailoring_Bench_Small</defName>
+                <label>Kurin hand tailor bench (1x2)</label>
+                <description>A workbench with a sewing machine for rapid tailoring of clothes.</description>
+                <thingClass>Building_WorkTable</thingClass>
+                <designatorDropdown>KurinTailoringBenchDropdownDef</designatorDropdown>
+                <graphicData>
+                  <texPath>Textures/Building/TailorSmall/Texture</texPath>
+                  <graphicClass>Graphic_Multi</graphicClass>
+                  <drawSize>(3, 1.5)</drawSize>
+                  <shaderType>CutoutComplex</shaderType>
+                  <color>(133,97,67)</color>
+                  <damageData>
+                    <cornerTL>Damage/Corner</cornerTL>
+                    <cornerTR>Damage/Corner</cornerTR>
+                    <cornerBL>Damage/Corner</cornerBL>
+                    <cornerBR>Damage/Corner</cornerBR>
+                  </damageData>
+                </graphicData>
+                <castEdgeShadows>true</castEdgeShadows>
+                <staticSunShadowHeight>0.20</staticSunShadowHeight>
+                <costStuffCount>75</costStuffCount>
+                <stuffCategories>
+                  <li>Metallic</li>
+                  <li>Woody</li>
+                </stuffCategories>
+                <altitudeLayer>Building</altitudeLayer>
+                <fillPercent>0.5</fillPercent>
+                <useHitPoints>True</useHitPoints>
+                <statBases>
+                  <WorkToBuild>2000</WorkToBuild>
+                  <MaxHitPoints>180</MaxHitPoints>
+                  <Flammability>1.0</Flammability>
+                  <WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
+                </statBases>
+                <size>(2,1)</size>
+                <designationCategory>Production</designationCategory>
+                <uiOrder>2405</uiOrder>
+                <passability>PassThroughOnly</passability>
+                <pathCost>50</pathCost>
+                <hasInteractionCell>True</hasInteractionCell>
+                <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+                <surfaceType>Item</surfaceType>
+                <inspectorTabs>
+                  <li>ITab_Bills</li>
+                </inspectorTabs>
+                <building>
+                  <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+                  <paintable>true</paintable>
+                </building>
+                <comps>
+                  <li Class="CompProperties_AffectedByFacilities">
+                    <linkableFacilities>
+                      <li>ToolCabinet</li>
+                      <li MayRequire="VanillaExpanded.VFEProduction">VFE_TailorCabinet</li>
+                    </linkableFacilities>
+                  </li>
+                </comps>
+                <placeWorkers>
+                  <li>PlaceWorker_ShowFacilitiesConnections</li>
+                  <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+                </placeWorkers>
+                <researchPrerequisites>
+                  <li>Kurin_ApparelT1</li>
+                </researchPrerequisites>
+              </ThingDef>
+            </value>
+          </Operation>
+
+          <!-- Make benches useable -->
+          <Operation Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[@Name="Kurin_ApparelBase"]/recipeMaker/recipeUsers</xpath>
+            <value>
+              <li>Kurin_Hand_Tailoring_Bench_Small</li>
+              <li>Kurin_Hand_Tailoring_Bench_Large</li>
+            </value>
+          </Operation>
+        </caseTrue>
       </Operation>
-    </caseTrue>
+    </apply>
   </Operation>
+
 </Patch>

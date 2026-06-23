@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinGothicPinSensitivity</key>
-    <defaultValue>0.15</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinGothicPinSensitivity</li>
+    </keys>
+    <defaultValues>
+      <li>0.15</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Gothic_Hair_Pin"]/equippedStatOffsets/PsychicSensitivityOffset</xpath>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_Overhead_Gothic_Hair_Pin"]</xpath>
         <value>
-          <PsychicSensitivityOffset>{DePaWSiTKurinGothicPinSensitivity}</PsychicSensitivityOffset>
+          <equippedStatOffsets Operation="Safe">
+            <PsychicSensitivityOffset Operation="Replace">{DePaWSiTKurinGothicPinSensitivity}</PsychicSensitivityOffset>
+          </equippedStatOffsets>
         </value>
       </Operation>
     </apply>

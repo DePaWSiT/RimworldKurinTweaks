@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="XmlExtensions.UseSetting">
+  <Operation Class="XmlExtensions.UseSettings">
     <modId>DePaWSiT.Kurin.ConfigTweaks</modId>
-    <key>DePaWSiTKurinHoodieCarryingCapacity</key>
-    <defaultValue>0</defaultValue>
+    <keys>
+      <li>DePaWSiTKurinHoodieCarryingCapacity</li>
+    </keys>
+    <defaultValues>
+      <li>0</li>
+    </defaultValues>
     <apply>
-      <Operation Class="PatchOperationConditional">
-        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hoodie"]/equippedStatOffsets</xpath>
-        <nomatch Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hoodie"]</xpath>
-          <value>
-            <equippedStatOffsets>
-              <CarryingCapacity>{DePaWSiTKurinHoodieCarryingCapacity}</CarryingCapacity>
-            </equippedStatOffsets>
-          </value>
-        </nomatch>
-        <match Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hoodie"]/equippedStatOffsets</xpath>
-          <value>
-            <CarryingCapacity>{DePaWSiTKurinHoodieCarryingCapacity}</CarryingCapacity>
-          </value>
-        </match>
+      <Operation Class="XmlExtensions.HybridPatch">
+        <xpath>Defs/ThingDef[defName = "Kurin_OnSkin_Hoodie"]</xpath>
+        <value>
+          <equippedStatOffsets Operation="Safe">
+            <CarryingCapacity Operation="Add">{DePaWSiTKurinHoodieCarryingCapacity}</CarryingCapacity>
+          </equippedStatOffsets>
+        </value>
       </Operation>
     </apply>
   </Operation>
